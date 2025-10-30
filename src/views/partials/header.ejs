@@ -1,0 +1,87 @@
+<header class="header h-[70px] lg:h-20 w-full px-4 py-4 lg:px-[2%]">
+  <div class="flex justify-between items-center">
+    <!-- Logo -->
+    <div class="logo-icon">
+      <img src="/imgs/logo.png" alt="toppilife" class="w-auto h-10 object-cover lg:h-12" />
+    </div>
+
+    <!-- Menu chính (ẩn trên mobile, hiện trên md trở lên) -->
+    <nav class="hidden md:flex items-center gap-8 font-semibold text-black text-[17px] lg:text-[20px]">
+      <a href="#about" class="hover:text-[#0BA84C] transition">Giới thiệu</a>
+      <a href="#product" class="hover:text-[#0BA84C] transition">Sản phẩm</a>
+      <a href="#certificate" class="hover:text-[#0BA84C] transition">Giấy chứng nhận</a>
+      <a href="#register" class="hover:text-[#0BA84C] transition">Đăng ký trải nghiệm</a>
+    </nav>
+
+    <!-- Hotline (chỉ hiện trên md trở lên) -->
+    <div class="hidden md:block">
+      <div class="bg-black text-white font-semibold px-6 py-2 rounded-full">
+        Hotline: 0123 456 789
+      </div>
+    </div>
+
+    <!-- Nhóm action cho mobile -->
+    <div class="flex gap-x-3 md:hidden">
+      <div class="cta-call">
+        <div class="circle w-12 h-12 bg-[#0BA84C] rounded-full flex justify-center items-center">
+          <i class="fa-solid fa-phone-volume text-white text-lg"></i>
+        </div>
+      </div>
+      <div class="menu" id="menuBtn">
+        <div class="circle w-12 h-12 bg-[#22BDB6] rounded-full flex justify-center items-center">
+          <i class="fa-solid fa-bars text-white text-xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown cho mobile -->
+  <div
+    id="dropdownMenu"
+    class="absolute w-full top-full right-0 mt-2 font-semibold text-[20px] bg-white rounded-lg shadow-lg opacity-0 invisible transition-all duration-300 md:hidden"
+  >
+    <a href="#product" class="block px-4 py-2 hover:bg-gray-100">Sản phẩm</a>
+    <a href="#story" class="block px-4 py-2 hover:bg-gray-100">Feedback</a>
+    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Về chúng tôi</a>
+  </div>
+</header>
+
+<!-- Nút scroll to top -->
+<button
+  id="scrollTopBtn"
+  class="hidden z-999 fixed bottom-2 right-3 bg-[#0BA84C] text-white p-4 rounded-full shadow-lg hover:bg-[#089a45] transition-all duration-1000"
+>
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const dropdownMenu = document.getElementById('dropdownMenu');
+
+menuBtn.addEventListener('click', () => {
+  dropdownMenu.classList.toggle('opacity-0');
+  dropdownMenu.classList.toggle('invisible');
+});
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+// Ẩn/hiện nút khi cuộn
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    scrollTopBtn.classList.add('show');
+    scrollTopBtn.classList.remove('hidden');
+  } else {
+    scrollTopBtn.classList.remove('show');
+    scrollTopBtn.classList.add('hidden');
+  }
+});
+
+// Khi bấm vào nút → cuộn lên đầu trang
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+
+</script>

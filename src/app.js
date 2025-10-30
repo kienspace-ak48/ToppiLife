@@ -29,6 +29,6 @@ app.get('/api/product', (req, res)=>{
 });
 // ===========END TEST========//
 route(app);
-dbConnection();
+// dbConnection();
 
 module.exports = app;

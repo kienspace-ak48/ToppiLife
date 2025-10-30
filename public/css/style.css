@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'SVN-Gilroy';
+    src: url('/font/SVN-Gilroy/SVN-Gilroy-Bold.woff2') format('woff2');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'SVN-Gilroy';
+    src: url('/font/SVN-Gilroy/SVN-Gilroy-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'SVN-Gilroy';
+    src: url('/font/SVN-Gilroy/SVN-Gilroy-Medium.woff2') format('woff2');
+    font-weight: 500;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'SVN-Gilroy', sans-serif;
+}
+.main-container{
+    margin: 0 auto;
+    padding: 0 15px;
+}
+#scrollTopBtn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#scrollTopBtn.show {
+  opacity: 1;
+}
+@media (min-width: 768px) {
+    .main-container{
+        width: 96%;
+    }
+}
