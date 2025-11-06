@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+        <style>
+            .swiper {
+                padding: 50px 0;
+                width: 100%;
+                height: 300px;
+            }
+            .swiper-slide {
+                text-align: center;
+                /* … */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <!-- … -->
+            </div>
+
+            <!-- nếu dùng pagination/navigation/scrollbar -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-scrollbar"></div>
+        </div>
+<!-- new -->
+<div>
+    <div class="carousel swiper lg:grid lg:grid-cols-2 lg:gap-7">
+  <div class="swiper-wrapper">
+    <!-- card 1 -->
+    <div class="swiper-slide">
+      <div class="benefit-card bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] flex flex-col p-5 lg:flex lg:flex-row lg:flex-nowrap lg:gap-x-5 lg:min-w-[245px]">
+        <img src="/imgs/benefit-1.png" alt="img-benefit-1"
+          class="w-full h-[200px] object-cover rounded-[22px] flex-1" />
+        <div class="benefit-content flex-2">
+          <h3 class="title font-bold text-2xl my-[15px]">
+            Ngủ sâu, phục hồi năng lượng
+          </h3>
+          <p class="font-medium text-[18px] leading-[26px] mt-[30px]">
+            Rút ngắn thời gian trằn trọc, giúp não bộ nghỉ ngơi trọn vẹn. Tinh thần thoải mái cũng giúp bạn
+            hạn chế ăn vặt do stress – hỗ trợ kiểm soát cân nặng một cách tự nhiên
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 2 -->
+    <div class="swiper-slide">
+      <div class="benefit-card bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] flex flex-col p-5 lg:flex lg:flex-row lg:flex-nowrap lg:gap-x-5 lg:min-w-[245px]">
+        <img src="/imgs/benefit-2.png" alt="img-benefit-2"
+          class="w-full h-[200px] object-cover rounded-[22px] flex-1" />
+        <div class="benefit-content flex-2">
+          <h3 class="title font-bold text-2xl my-[15px]">
+            Giảm căng mỏi tức thì
+          </h3>
+          <p class="font-medium text-[18px] leading-[26px] mt-[30px]">
+            Tác động trực tiếp lên cơ bắp và dây thần kinh, giúp giảm áp lực vùng cổ, vai, gáy, lưng dưới.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 3 -->
+    <div class="swiper-slide">
+      <div class="benefit-card bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] flex flex-col p-5 lg:flex lg:flex-row lg:flex-nowrap lg:gap-x-5 lg:min-w-[245px]">
+        <img src="/imgs/benefit-3.png" alt="img-benefit-3"
+          class="w-full h-[200px] object-cover rounded-[22px] flex-1" />
+        <div class="benefit-content flex-2">
+          <h3 class="title font-bold text-2xl my-[15px]">
+            Tăng sức đề kháng & sự dẻo dai
+          </h3>
+          <p class="font-medium text-[18px] leading-[26px] mt-[30px]">
+            Tế bào được “nạp pin”, hỗ trợ cơ thể chống lại mệt mỏi văn phòng mãn tính.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 4 -->
+    <div class="swiper-slide">
+      <div class="benefit-card bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] flex flex-col p-5 lg:flex lg:flex-row lg:flex-nowrap lg:gap-x-5 lg:min-w-[245px]">
+        <img src="/imgs/benefit-4.png" alt="img-benefit-4"
+          class="w-full h-[200px] object-cover rounded-[22px] flex-1" />
+        <div class="benefit-content flex-2">
+          <h3 class="title font-bold text-2xl my-[15px]">
+            Làm việc tập trung & sáng tạo hơn
+          </h3>
+          <p class="font-medium text-[18px] leading-[26px] mt-[30px]">
+            Giấc ngủ chất lượng mang lại tinh thần minh mẫn cho ngày mới.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dots -->
+  <div class="swiper-pagination lg:hidden mt-6"></div>
+</div>
+
+</div>
+<!--  -->
+        <!-- script -->
+        <script>
+            const swiper = new Swiper('.swiper', {
+                direction: 'horizontal', // hoặc 'vertical'
+                loop: true, // nếu muốn chạy lặp lại
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+                slidesPerView: 1, // số slide hiển thị đồng thời
+                spaceBetween: 10, // khoảng cách giữa slides (px)
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                // … nhiều option khác
+            });
+        </script>
+    </body>
+</html>
+
+<!--  -->
+

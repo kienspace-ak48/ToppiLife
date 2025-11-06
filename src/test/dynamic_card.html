@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Solution Cards</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f6fafc;
+      padding: 20px;
+    }
+    .solution-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      max-width: 300px;
+      background-color: aliceblue;
+      position: relative;
+    }
+    .preview-wrapper {
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      height: 150px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .preview-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #chooseImageModal .img-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    #chooseImageModal .img-list img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    #chooseImageModal .img-list img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="mb-3">Dynamic “High Potential” Cards Demo</h2>
+    <button id="btnAddCard" class="btn btn-primary mb-3">+ Add new card</button>
+
+    <div class="row cards-container" style="display:flex; flex-wrap:wrap; gap:10px;"></div>
+  </div>
+
+  <!-- Template for card -->
+  <script type="text/template" id="solutionCardTemplate">
+    <div class="solution-card">
+      <button type="button" class="btn btn-danger btn-sm remove-card" style="position:absolute; top:5px; right:5px;">×</button>
+
+      <label class="form-label mt-3">Primary image</label>
+      <div class="input-group mb-2">
+        <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+        <input type="text" class="form-control" placeholder="path value..." />
+      </div>
+      <div class="preview-wrapper mb-2">
+        <img src="https://placehold.co/300x150?text=Default" alt="preview" />
+      </div>
+
+      <label class="form-label">Card title</label>
+      <input type="text" class="form-control mb-2" placeholder="Enter card title..." />
+
+      <label class="form-label">Mechanism of operation</label>
+      <input type="text" class="form-control mb-1" placeholder="Line 1..." />
+      <input type="text" class="form-control mb-1" placeholder="Line 2..." />
+      <input type="text" class="form-control mb-2" placeholder="Line 3..." />
+
+      <label class="form-label">Purpose</label>
+      <input type="text" class="form-control mb-1" placeholder="Purpose 1..." />
+      <input type="text" class="form-control mb-1" placeholder="Purpose 2..." />
+      <input type="text" class="form-control mb-1" placeholder="Purpose 3..." />
+    </div>
+  </script>
+
+  <!-- Modal chọn ảnh -->
+  <div class="modal fade" id="chooseImageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Choose Image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="img-list">
+            <!-- ảnh mẫu -->
+            <img src="https://placehold.co/150x150/ff9/fff?text=1" alt="">
+            <img src="https://placehold.co/150x150/9cf/fff?text=2" alt="">
+            <img src="https://placehold.co/150x150/f96/fff?text=3" alt="">
+            <img src="https://placehold.co/150x150/6f9/fff?text=4" alt="">
+            <img src="https://placehold.co/150x150/ccc/000?text=5" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const btnAddCard = document.getElementById("btnAddCard");
+    const cardsContainer = document.querySelector(".cards-container");
+    const cardTemplate = document.getElementById("solutionCardTemplate").innerHTML;
+    const modalEl = document.getElementById("chooseImageModal");
+    const modal = new bootstrap.Modal(modalEl);
+    let groupTarget = null;
+
+    // Thêm card mới
+    btnAddCard.addEventListener("click", () => {
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = cardTemplate.trim();
+      const card = wrapper.firstElementChild;
+
+      // Sự kiện xóa card
+      card.querySelector(".remove-card").addEventListener("click", () => card.remove());
+
+      // Sự kiện mở modal chọn ảnh
+      card.querySelector(".cta-choose-img").addEventListener("click", function() {
+        groupTarget = this;
+        modal.show();
+      });
+
+      cardsContainer.appendChild(card);
+    });
+
+    // Chọn ảnh trong modal
+    modalEl.querySelectorAll(".img-list img").forEach(img => {
+      img.addEventListener("click", function() {
+        const src = this.getAttribute("src");
+        if (groupTarget) {
+          const input = groupTarget.nextElementSibling;
+          if (input) input.value = src;
+          const preview = groupTarget.closest(".input-group").nextElementSibling.querySelector("img");
+          if (preview) preview.src = src;
+        }
+        modal.hide();
+      });
+    });
+  </script>
+</body>
+</html>

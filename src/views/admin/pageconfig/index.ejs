@@ -1,0 +1,1266 @@
+<style>
+    section {
+        margin-top: 15px;
+    }
+    .preview-wrapper {
+        margin: 3px 0;
+        border: 1px solid #ccc;
+        height: 150px;
+        width: 200px;
+        object-fit: cover;
+    }
+    .preview-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    #chooseImageModal {
+        padding: 50px;
+    }
+    #chooseImageModal .img-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    #chooseImageModal .img-list .card {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+    #chooseImageModal .img-list img {
+        border-radius: 5px;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        transition: all 0.5s linear;
+    }
+    #chooseImageModal .img-list img:hover {
+        /* transform: translateY(-10px); */
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    .customer-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        .customer-card .remove-card {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            border: none;
+            background: none;
+            color: #dc3545;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .ap_wrapper{
+            display: flex;
+            justify-content: center;
+        }
+        .avatar-preview {
+            margin-top: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .avatar-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+</style>
+<div class="my-card" style="min-height: 500px">
+    <button class="btn btn-primary" id="cta-saveConfig">Save Config</button>
+    <hr />
+    <!-- hero -->
+    <section id="hero">
+        <div class="card">
+            <div
+                class="card-header d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                data-bs-target="#s_hero"
+                style="cursor: pointer"
+            >
+                <h5 class="mb-0">⚙️ Hero</h5>
+                <span class="text-muted">▼</span>
+            </div>
+
+            <div id="s_hero" class="collapse">
+                <div class="card-body">
+                    <div class="row my-2">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="hero_title_line1" class="form-label">Title-1</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="hero_title_line1"
+                                    name="hero_title_line1"
+                                    value="<%= (pc&& pc.hero)?pc.hero?.title_line1:'' %>"
+                                />
+
+                                <label for="hero_title_line2" class="form-label">Title-2</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="hero_title_line2"
+                                    name="hero_title_line2"
+                                    value="<%= (pc&& pc.hero)?pc.hero?.title_line2:'' %>"
+                                />
+
+                                <label for="hero_title_line3" class="form-label">Title-3</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="hero_title_line3"
+                                    name="hero_title_line3"
+                                    value="<%= (pc&& pc.hero)?pc.hero?.title_line3:'' %>"
+                                />
+                            </div>
+
+                            <label for="hero_desc" class="form-label">Mô tả</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="hero_desc"
+                                name="hero_desc"
+                                placeholder="Nhập mô tả..."
+                                value="<%=(pc&&pc.hero)?pc.hero?.desc:''%>"
+                            />
+                        </div>
+
+                        <div class="col-6">
+                            <div class="bubble">
+                                <label for="hero_bubble_1" class="form-label">Bubble-1</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="hero_bubble_1"
+                                    name="hero_bubble_1"
+                                    placeholder="Nhập bubble..."
+                                    value="<%=(pc&&pc.hero)?pc.hero?.bubble_1:''%>"
+                                />
+
+                                <label for="hero_bubble_2" class="form-label">Bubble-2</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="hero_bubble_2"
+                                    name="hero_bubble_2"
+                                    placeholder="Nhập bubble..."
+                                    value="<%=(pc&&pc.hero)?pc.hero?.bubble_2:''%>"
+                                />
+
+                                <label for="hero_bubble_3" class="form-label">Bubble-3</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="hero_bubble_3"
+                                    name="hero_bubble_3"
+                                    placeholder="Nhập bubble..."
+                                    value="<%=(pc&&pc.hero)?pc.hero?.bubble_3:''%>"
+                                />
+                            </div>
+
+                            <div class="img-group">
+                                <label for="hero_img_primary" class="form-label">Primary image</label>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                    <input
+                                        type="text"
+                                        id="hero_img_primary"
+                                        class="form-control"
+                                        placeholder="path value..."
+                                        value="<%=(pc&&pc.hero)?pc.hero?.images[0]?.primary:''%>"
+                                    />
+                                </div>
+                                <div class="preview-wrapper">
+                                    <img
+                                        src="<%=(pc &&pc.hero)?pc.hero.images[0].primary:'/imgs/default.png'%>"
+                                        alt=""
+                                    />
+                                </div>
+
+                                <label for="hero_img_secondary" class="form-label" aria-placeholder="path value..."
+                                    >Second image</label
+                                >
+                                <div class="input-group">
+                                    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                    <input
+                                        id="hero_img_secondary"
+                                        ype="text"
+                                        class="form-control"
+                                        value="<%=(pc&&pc.hero)?pc.hero?.images[0]?.secondary:''%>"
+                                        placeholder="path value..."
+                                    />
+                                </div>
+                                <div class="preview-wrapper">
+                                    <img
+                                        src="<%=(pc &&pc.hero)?pc.hero.images[0].secondary:'/imgs/default.png'%>"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>--If you section--</h4>
+                    <div class="row if-you my-5">
+                        <div class="col-6">
+                            <label for="hero_issue_title_1" class="form-label">Issue-title-1</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="hero_issue_title_1"
+                                name="hero_issue_title_1"
+                                placeholder="Title..."
+                                value="<%=(pc&&pc.hero)?pc.hero?.issues[0].title:''%>"
+                            />
+                            <textarea
+                                name="hero_issue_desc_1"
+                                id="hero_issue_desc_1"
+                                class="form-control"
+                                placeholder="Enter..."
+                            >
+<%=(pc&&pc.hero)?pc.hero?.issues[0]?.desc:''%></textarea
+                            >
+
+                            <label for="hero_issue_title_2" class="form-label">Issue-title-2</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="hero_issue_title_2"
+                                name="hero_issue_title_2"
+                                placeholder="Title..."
+                                value="<%=(pc&&pc.hero)?pc.hero?.issues[1].title:''%>"
+                            />
+                            <textarea
+                                name="hero_issue_desc_2"
+                                id="hero_issue_desc_2"
+                                class="form-control"
+                                placeholder="Enter..."
+                            >
+<%=(pc&&pc.hero)?pc.hero?.issues[1]?.desc:''%></textarea
+                            >
+
+                            <label for="hero_issue_title_3" class="form-label">Issue-title-3</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="hero_issue_title_3"
+                                name="hero_issue_title_3"
+                                placeholder="Title..."
+                                value="<%=(pc&&pc.hero)?pc.hero?.issues[2].title:''%>"
+                            />
+                            <textarea
+                                name="hero_issue_desc_3"
+                                id="hero_issue_desc_3"
+                                class="form-control"
+                                placeholder="Enter..."
+                            >
+<%=(pc&&pc.hero)?pc.hero?.issues[2]?.desc:''%></textarea
+                            >
+                        </div>
+
+                        <div class="col-6">
+                            <label for="hero_issue_summary" class="form-label">Issue summary</label>
+                            <textarea
+                                name="hero_issue_summary"
+                                id="hero_issue_summary"
+                                class="form-control"
+                                placeholder="Enter..."
+                            >
+<%=(pc&&pc.hero)?pc.hero?.title_summary:''%></textarea
+                            >
+
+                            <label for="hero_issue_img_summary" class="form-label">Summary image</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                <input
+                                    id="hero_issue_img_summary"
+                                    type="text"
+                                    value="<%=(pc&&pc.hero)?pc.hero?.images[0]?.summary:''%>"
+                                    class="form-control"
+                                    placeholder="path value..."
+                                />
+                            </div>
+                            <div class="preview-wrapper">
+                                <img src="<%=(pc &&pc.hero)?pc.hero.images[0].summary:'/imgs/default.png'%>" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- solution -->
+    <section id="solution">
+        <div class="card">
+            <div
+                class="card-header d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                data-bs-target="#s_solution"
+                style="cursor: pointer"
+            >
+                <h5 class="mb-0">⚙️ Solution</h5>
+                <span class="text-muted">▼</span>
+            </div>
+
+            <div id="s_solution" class="collapse">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="" class="form-label">Title</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="sol_title"
+                                value="<%=(pc&&pc.solution)?pc.solution?.title:''%>"
+                                placeholder="title..."
+                            />
+                        </div>
+                        <div class="col-6">
+                            <label for="" class="form-label">Desc</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="sol_desc"
+                                value="<%=(pc&&pc.solution)?pc.solution?.desc:''%>"
+                                placeholder="desc..."
+                            />
+                        </div>
+                        <!-- group 3 card -->
+                        <div
+                            class="row"
+                            style="
+                                display: flex;
+                                flex-wrap: wrap;
+                                width: 100%;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 10px;
+                                margin-top: 20px;
+                            "
+                        >
+                            <!-- card 1 -->
+                            <div
+                                class="solution-card"
+                                style="
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
+                                    max-width: calc(100% / 3 - 20px);
+                                    min-height: 300px;
+                                    background-color: aliceblue;
+                                "
+                            >
+                                <!-- header -->
+                                <label for="hero_img_primary" class="form-label">Primary image</label>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                    <input
+                                        type="text"
+                                        name="sol_card1_img"
+                                        class="form-control"
+                                        placeholder="path value..."
+                                        value="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:''%>"
+                                    />
+                                </div>
+                                <div class="preview-wrapper">
+                                    <img
+                                        src="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:'/imgs/default.png'%>"
+                                        alt=""
+                                    />
+                                </div>
+                                <!-- content -->
+                                <label for="" class="form-label">card title</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card1_title"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0].title:''%>"
+                                    placeholder="title..."
+                                />
+                                <!-- co che hoat dong -->
+                                <label for="" class="form-label">mechanismo of operation</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card1_moo1"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.mechanismofoperation[0]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card1_moo2"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.mechanismofoperation[1]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card1_moo3"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.mechanismofoperation[2]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <!-- cong dung -->
+                                <label for="" class="form-label">Purpose</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card1_p1"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.purpose[0]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card1_p2"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.purpose[1]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card1_p3"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.purpose[2]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                            </div>
+                            <!-- card 2 -->
+                            <div
+                                class="solution-card"
+                                style="
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
+                                    max-width: calc(100% / 3 - 20px);
+                                    min-height: 300px;
+                                    background-color: aliceblue;
+                                "
+                            >
+                                <!-- header -->
+                                <label for="hero_img_primary" class="form-label">Primary image</label>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                    <input
+                                        type="text"
+                                        name="sol_card2_img"
+                                        class="form-control"
+                                        placeholder="path value..."
+                                        value="<%=(pc&&pc.solution)?pc.solution?.cards[1].img:''%>"
+                                    />
+                                </div>
+                                <div class="preview-wrapper">
+                                    <img
+                                        src="<%=(pc&&pc.solution)?pc.solution?.cards[1].img:'/imgs/default.png'%>"
+                                        alt=""
+                                    />
+                                </div>
+                                <!-- content -->
+                                <label for="" class="form-label">card title</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card2_title"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1].title:''%>"
+                                    placeholder="title..."
+                                />
+                                <!-- co che hoat dong -->
+                                <label for="" class="form-label">mechanismo of operation</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card2_moo1"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.mechanismofoperation[0]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card2_moo2"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.mechanismofoperation[1]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card2_moo3"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.mechanismofoperation[2]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <!-- cong dung -->
+                                <label for="" class="form-label">Purpose</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card2_p1"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.purpose[0]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card2_p2"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.purpose[1]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card2_p3"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.purpose[2]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                            </div>
+                            <!-- card 3 -->
+                            <div
+                                class="solution-card"
+                                style="
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
+                                    max-width: calc(100% / 3 - 20px);
+                                    min-height: 300px;
+                                    background-color: aliceblue;
+                                "
+                            >
+                                <!-- header -->
+                                <label for="hero_img_primary" class="form-label">Primary image</label>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                    <input
+                                        type="text"
+                                        name="sol_card3_img"
+                                        class="form-control"
+                                        placeholder="path value..."
+                                        value="<%=(pc&&pc.solution)?pc.solution?.cards[2].img:''%>"
+                                    />
+                                </div>
+                                <div class="preview-wrapper">
+                                    <img
+                                        src="<%=(pc&&pc.solution)?pc.solution?.cards[2].img:'/imgs/default.png'%>"
+                                        alt=""
+                                    />
+                                </div>
+                                <!-- content -->
+                                <label for="" class="form-label">card title</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card3_title"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0].title:''%>"
+                                    placeholder="title..."
+                                />
+                                <!-- co che hoat dong -->
+                                <label for="" class="form-label">mechanismo of operation</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card3_moo1"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.mechanismofoperation[0]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card3_moo2"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.mechanismofoperation[1]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card3_moo3"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.mechanismofoperation[2]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <!-- cong dung -->
+                                <label for="" class="form-label">Purpose</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card3_p1"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.purpose[0]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card3_p2"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.purpose[1]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sol_card3_p3"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.purpose[2]?.desc:''%>"
+                                    placeholder="text..."
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- product -->
+    <section id="product">
+        <div class="card">
+            <div
+                class="card-header d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                data-bs-target="#s_product"
+                style="cursor: pointer"
+            >
+                <h5 class="mb-0">⚙️ Product</h5>
+                <span class="text-muted">▼</span>
+            </div>
+
+            <div id="s_product" class="collapse">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="" class="form-label">Title</label>
+                            <input
+                                type="text"
+                                placeholder="Title..."
+                                name="product_title"
+                                value="<%=(pc&&pc.product)?pc.product?.title:''%>"
+                                class="form-control"
+                            />
+                        </div>
+                        <div class="col-6">
+                            <label for="hero_img_primary" class="form-label">Image product</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                <input
+                                    type="text"
+                                    name="product_img"
+                                    class="form-control"
+                                    placeholder="path value..."
+                                    value="<%=(pc&&pc.product)?pc.product?.img:''%>"
+                                />
+                            </div>
+                            <div class="preview-wrapper">
+                                <img src="<%=(pc&&pc.product)?pc.product?.img:''%>" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- benefit -->
+    <section id="benefit">
+        <div class="card">
+            <div
+                class="card-header d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                data-bs-target="#s_benefit"
+                style="cursor: pointer"
+            >
+                <h5 class="mb-0">⚙️ Benefit</h5>
+                <span class="text-muted">▼</span>
+            </div>
+
+            <div id="s_benefit" class="collapse">
+                <div class="card-body">
+                    <label for="" class="form-label">Title</label>
+                    <input
+                        type="text"
+                        name="benefit_title"
+                        value="<%=(pc&&pc.benefit)?pc.benefit?.title:''%>"
+                        class="form-control"
+                        placeholder="Title..."
+                    />
+                    <div class="row" style="margin-top: 15px">
+                        <div class="col-6">
+                            <!-- item 1 -->
+                            <label for="hero_img_primary" class="form-label">Primary image</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                <input
+                                    type="text"
+                                    name="ben_card1_img"
+                                    class="form-control"
+                                    placeholder="path value..."
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[0].img:''%>"
+                                />
+                            </div>
+                            <div class="preview-wrapper">
+                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards[0].img:'/imgs/default.png'%>" alt="" />
+                            </div>
+                            <div class="mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[0].title:''%>"
+                                    name="ben_card1_title"
+                                    placeholder="Tiêu đề..."
+                                />
+                                <textarea class="form-control" rows="3" name="ben_card1_desc" placeholder="Nội dung...">
+<%=(pc&&pc.benefit)?pc.benefit?.cards[0].desc:''%></textarea
+                                >
+                            </div>
+                            <!-- item 2 -->
+                            <label for="hero_img_primary" class="form-label">Primary image</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                <input
+                                    type="text"
+                                    name="ben_card2_img"
+                                    class="form-control"
+                                    placeholder="path value..."
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[1].img:''%>"
+                                />
+                            </div>
+                            <div class="preview-wrapper">
+                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards[1].img:'/imgs/default.png'%>" alt="" />
+                            </div>
+                            <div class="mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[1].title:''%>"
+                                    name="ben_card2_title"
+                                    placeholder="Tiêu đề..."
+                                />
+                                <textarea class="form-control" rows="3" name="ben_card2_desc" placeholder="Nội dung...">
+<%=(pc&&pc.benefit)?pc.benefit?.cards[1].desc:''%></textarea
+                                >
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <!-- item 3 -->
+                            <label for="hero_img_primary" class="form-label">Primary image</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                <input
+                                    type="text"
+                                    name="ben_card3_img"
+                                    class="form-control"
+                                    placeholder="path value..."
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[2].img:''%>"
+                                />
+                            </div>
+                            <div class="preview-wrapper">
+                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards[2].img:'/imgs/default.png'%>" alt="" />
+                            </div>
+                            <div class="mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[2].title:''%>"
+                                    name="ben_card3_title"
+                                    placeholder="Tiêu đề..."
+                                />
+                                <textarea class="form-control" rows="3" name="ben_card3_desc" placeholder="Nội dung...">
+<%=(pc&&pc.benefit)?pc.benefit?.cards[2].desc:''%></textarea
+                                >
+                            </div>
+                            <!-- item 4 -->
+                            <label for="hero_img_primary" class="form-label">Primary image</label>
+                            <div class="input-group">
+                                <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                <input
+                                    type="text"
+                                    name="ben_card4_img"
+                                    class="form-control"
+                                    placeholder="path value..."
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[3].img:''%>"
+                                />
+                            </div>
+                            <div class="preview-wrapper">
+                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards[3].img:'/imgs/default.png'%>" alt="" />
+                            </div>
+                            <div class="mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[3].title:''%>"
+                                    name="ben_card4_title"
+                                    placeholder="Tiêu đề..."
+                                />
+                                <textarea class="form-control" rows="3" name="ben_card4_desc" placeholder="Nội dung...">
+<%=(pc&&pc.benefit)?pc.benefit?.cards[3].desc:''%></textarea
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- feedback -->
+    <section id="feedback">
+        <div class="card">
+            <div
+                class="card-header d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                data-bs-target="#s_feedback"
+                style="cursor: pointer"
+            >
+                <h5 class="mb-0">⚙️ Feedback</h5>
+                <span class="text-muted">▼</span>
+            </div>
+
+            <div id="s_feedback" class="collapse">
+                <div class="card-body">
+                    <div class="row">
+                        <label for="" class="form-label">Title</label>
+                        <input type="text" name="feedback_title" class="form-control" value="<%=(pc&&pc.feedback)?pc.feedback.title:''%>" placeholder="Title..." />
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <!-- <h3 class="mb-4">🗣️ Form nhập cảm nhận khách hàng (Dynamic)</h3> -->
+
+                        <button id="btnAddCustomer" class="btn btn-primary mb-3">+ Thêm khách hàng</button>
+                        <button id="btnGetData" class="btn btn-success mb-3 ms-2">💾 Lấy dữ liệu</button>
+
+                        <div class="customers-container">
+                            <!-- new -->
+                             <% if(pc&&pc.feedback.cards){ %>
+                                <% pc.feedback.cards.forEach((f,i)=>{ %>
+                                    <div class="customers-container">
+                            <!-- new -->
+                             
+                                    <div class="customer-card">
+          <button type="button" class="remove-card">&times;</button>
+          <div class="row">
+            <div class="col-md-5 text-center">
+              <label for="hero_img_primary" class="form-label">Primary image</label>
+                <div class="input-group">
+                    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                    <input
+                        type="text"
+                        name="sol_card1_img"
+                        class="form-control"
+                        placeholder="path value..."
+                        value="<%=f.img%>"
+                    />
+                </div>
+                <div class="ap_wrapper">
+                    <div class="avatar-preview">
+                    <img src="<%=f.img%>" alt="" />
+                </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+              <input type="text" class="form-control mb-2 name" placeholder="Tên khách hàng (vd: Tuấn) " value="<%=f.name%>" />
+              <input type="text" class="form-control mb-2 job" placeholder="Chức vụ (vd: Lập trình viên)" value="<%=f.job%>" />
+              <!-- <input type="number" class="form-control mb-2 age" placeholder="Tuổi" /> -->
+              <textarea class="form-control quote" rows="3" placeholder="Nhập lời chia sẻ..."><%=f.quote%></textarea>
+            </div>
+          </div>
+        </div>
+                                
+                                <% }) %>
+                             <% }else{ %>
+                                <div></div>
+                             <% } %>
+                            
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- voucher -->
+     <section id="voucher">
+    <div class="card">
+        <div
+            class="card-header d-flex justify-content-between align-items-center"
+            data-bs-toggle="collapse"
+            data-bs-target="#s_voucher"
+            style="cursor: pointer"
+        >
+            <h5 class="mb-0">⚙️ Voucher</h5>
+            <span class="text-muted">▼</span>
+        </div>
+
+        <div id="s_voucher" class="collapse">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="" class="form-label">Image voucher</label>
+<div class="input-group">
+    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+    <input
+        type="text"
+        name="voucher_img"
+        class="form-control"
+        placeholder="path value..."
+        value="<%=(pc&&pc.voucher)?pc.voucher?.img:''%>"
+    />
+</div>
+<div class="preview-wrapper">
+    <img src="<%=(pc&&pc.voucher)?pc.voucher?.img:'/imgs/default.png'%>" alt="" />
+</div>
+                    </div>
+                    <div class="col-6">
+                        <label for="" class="form-label">Title</label>
+                        <input type="text" placeholder="Title..." value="<%=(pc&&pc.voucher)?pc.voucher.title:''%>" name="voucher_title" class="form-control">
+                        <div class="input-group">
+                            <div style="width: 70%;">
+                                <label for="" class="form-label">EndDate: </label>
+                        <input type="datetime-local" name="voucher_enddate" value="<%=(pc&&pc.voucher)?pc.voucher.end_date:''%>" id="" class="form-control">
+                            </div>
+                            <div style="width: 30%;">
+                                <label for="" class="form-label">Voucher percent <small style="color: red">(%)</small></label>
+                        <input type="number" name="voucher_percent" min="1" max="100" value="<%=(pc&&pc.voucher)?pc.voucher.percent:''%>" class="form-control" placeholder="vd: 10%">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- page info -->
+ <section id="pageinfo">
+    <div class="card">
+        <div
+            class="card-header d-flex justify-content-between align-items-center"
+            data-bs-toggle="collapse"
+            data-bs-target="#s_pageinfo"
+            style="cursor: pointer"
+        >
+            <h5 class="mb-0">⚙️ Page info</h5>
+            <span class="text-muted">▼</span>
+        </div>
+
+        <div id="s_pageinfo" class="collapse">
+            <div class="card-body">
+                <div class="row">
+                    <label for="" class="form-label">Email</label>
+                    <input type="text" name="pageinfo_email" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.email:''%>"  class="form-control" placeholder="admin@gmail.com">
+                    <label for="" class="form-label">Phone number</label>
+                    <input type="text" name="pageinfo_phone" class="form-control" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.phone:''%>" placeholder="19001900">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- <button class="btn btn-warning fw-bold" onclick="saveSetting()">Lưu</button> -->
+    <div class="container mt-4"></div>
+</div>
+
+<!-- =======================OUTDOOR=================== -->
+<div class="modal fade" id="chooseImageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="img-list">
+                    <%imgs.forEach((c,i)=>{%>
+                    <div class="card" data-name="<%=c.name%>" data-path="<%=c.path%>">
+                        <img src="<%=c.path%>" alt="" />
+                    </div>
+                    <%})%>
+                </div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+<!--  =====================SCRIPT HERE=================-->
+  <!-- Template -->
+    <script type="text/template" id="customerTemplate" defer>
+        <div class="customer-card">
+          <button type="button" class="remove-card">&times;</button>
+          <div class="row">
+            <div class="col-md-5 text-center">
+              <label for="hero_img_primary" class="form-label">Primary image</label>
+                <div class="input-group">
+                    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                    <input
+                        type="text"
+                        name="sol_card1_img"
+                        class="form-control"
+                        placeholder="path value..."
+                        value=""
+                    />
+                </div>
+                <div class="ap_wrapper">
+                    <div class="avatar-preview">
+                    <img src="/imgs/default.png" alt="" />
+                </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+              <input type="text" class="form-control mb-2 name" placeholder="Tên khách hàng (vd: Tuấn)" />
+              <input type="text" class="form-control mb-2 job" placeholder="Chức vụ (vd: Lập trình viên)" />
+              <!-- <input type="number" class="form-control mb-2 age" placeholder="Tuổi" /> -->
+              <textarea class="form-control quote" rows="3" placeholder="Nhập lời chia sẻ..."></textarea>
+            </div>
+          </div>
+        </div>
+    </script>
+<script>
+    // global scope
+    const modalEl = document.querySelector('#chooseImageModal');
+    const modal = new bootstrap.Modal(modalEl);
+    var groupTarget = null;
+    var fb_customer = [];
+    const btnAddCustomer = document.getElementById('btnAddCustomer');
+    const customersContainer = document.querySelector('.customers-container');
+    const template = document.getElementById('customerTemplate').innerHTML;
+
+    //
+    function openModal() {
+        modal.show();
+    }
+    function closeModal() {
+        modal.hide();
+    }
+    // mo modal choose img
+    document.querySelectorAll('.cta-choose-img').forEach((el) => {
+        el.addEventListener('click', function (ev) {
+            openModal();
+            // console.log(ev.target);
+            // console.log(el.closest('.preview-wrapper img'));
+            groupTarget = this;
+        });
+    });
+    // Thêm khách hàng mới
+    btnAddCustomer.addEventListener('click', () => {
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = template.trim();
+            const card = wrapper.firstElementChild;
+
+            // Xóa card
+            card.querySelector('.remove-card').addEventListener('click', () => card.remove());
+            customersContainer.appendChild(card);
+            // 🟢 Thêm đoạn này để gắn lại sự kiện cho các nút mới
+            card.querySelectorAll('.cta-choose-img').forEach((el) => {
+                el.addEventListener('click', function (ev) {
+                    openModal();
+                    groupTarget = this;
+                });
+            });
+        });
+    // 
+    // get data
+    const btnGetData = document.getElementById('btnGetData');
+    btnGetData.addEventListener('click', () => {
+        const cards = document.querySelectorAll('.customer-card');
+        const data = [];
+            cards.forEach((card) => {
+                const img = card.querySelector(".form-control[name='sol_card1_img']")?.value || '';
+                const name = card.querySelector('.name')?.value.trim() || '';
+                const job = card.querySelector('.job')?.value.trim() || '';
+                const quote = card.querySelector('.quote')?.value.trim() || '';
+
+                data.push({ img, name, job, quote });
+            });
+            // temp
+            fb_customer = data;
+            console.log(data); // ✅ In ra mảng dữ liệu khách hàng
+        });
+    //fx get card data
+    function dataCardFeedback(){
+        const cards = document.querySelectorAll('.customer-card');
+        const data = [];
+            cards.forEach((card) => {
+                const img = card.querySelector(".form-control[name='sol_card1_img']")?.value || '';
+                const name = card.querySelector('.name')?.value.trim() || '';
+                const job = card.querySelector('.job')?.value.trim() || '';
+                const quote = card.querySelector('.quote')?.value.trim() || '';
+
+                data.push({ img, name, job, quote });
+            });
+            // temp
+            fb_customer = data;
+            console.log(data); // ✅ In ra mảng dữ liệu khách hàng
+    } 
+    // 
+    document.querySelectorAll('#chooseImageModal .img-list .card').forEach((thumb, i) => {
+        thumb.addEventListener('click', function (ev) {
+            const value = ev.currentTarget;
+            // console.log(thumb)
+            var name = thumb.dataset.name;
+            var path = thumb.dataset.path;
+            // console.log(name, path)
+            if (groupTarget) {
+                // Từ nút "Choose image" → tìm input kế bên
+                const input = groupTarget.nextElementSibling;
+                if (input) input.value = path;
+
+                // Từ nút "Choose image" → tìm .preview-wrapper liền sau input-group
+                const imgGroup = groupTarget.closest('.input-group');
+                const preview = imgGroup.nextElementSibling?.querySelector('img');
+                if (preview) preview.src = path;
+            }
+            closeModal();
+        });
+    });
+    document.getElementById('cta-saveConfig').addEventListener('click', function () {
+        dataCardFeedback();
+        const data = {
+            hero: {
+                title_line1: document.querySelector('[name="hero_title_line1"]').value,
+                title_line2: document.querySelector('[name="hero_title_line2"]').value,
+                title_line3: document.querySelector('[name="hero_title_line3"]').value,
+                desc: document.querySelector('#hero_desc').value,
+                bubble_1: document.querySelector('#hero_bubble_1').value,
+                bubble_2: document.querySelector('#hero_bubble_2').value,
+                bubble_3: document.querySelector('#hero_bubble_3').value,
+                imgs: [
+                    {
+                        primary: document.querySelector('#hero_img_primary').value,
+                        secondary: document.querySelector('#hero_img_secondary').value,
+                        summary: document.querySelector('#hero_issue_img_summary').value,
+                    },
+                ],
+                issues: [
+                    {
+                        title: document.querySelector('#hero_issue_title_1').value,
+                        desc: document.querySelector('#hero_issue_desc_1').value,
+                    },
+                    {
+                        title: document.querySelector('#hero_issue_title_2').value,
+                        desc: document.querySelector('#hero_issue_desc_2').value,
+                    },
+                    {
+                        title: document.querySelector('#hero_issue_title_3').value,
+                        desc: document.querySelector('#hero_issue_desc_3').value,
+                    },
+                ],
+                title_summary: document.querySelector('#hero_issue_summary').value,
+            },
+            solution: {
+                title: document.querySelector('[name="sol_title"]').value,
+                desc: document.querySelector('[name="sol_desc"]').value,
+                cards: [
+                    {
+                        img: document.querySelector('[name="sol_card1_img"]').value,
+                        title: document.querySelector('[name="sol_card1_title"]').value,
+                        mechanismofoperation: [
+                            { desc: document.querySelector('[name="sol_card1_moo1"]').value },
+                            { desc: document.querySelector('[name="sol_card1_moo2"]').value },
+                            { desc: document.querySelector('[name="sol_card1_moo3"]').value },
+                        ],
+                        purpose: [
+                            { desc: document.querySelector('[name="sol_card1_p1"]').value },
+                            { desc: document.querySelector('[name="sol_card1_p2"]').value },
+                            { desc: document.querySelector('[name="sol_card1_p3"]').value },
+                        ],
+                    },
+                    {
+                        img: document.querySelector('[name="sol_card2_img"]').value,
+                        title: document.querySelector('[name="sol_card2_title"]').value,
+                        mechanismofoperation: [
+                            { desc: document.querySelector('[name="sol_card2_moo1"]').value },
+                            { desc: document.querySelector('[name="sol_card2_moo2"]').value },
+                            { desc: document.querySelector('[name="sol_card2_moo3"]').value },
+                        ],
+                        purpose: [
+                            { desc: document.querySelector('[name="sol_card2_p1"]').value },
+                            { desc: document.querySelector('[name="sol_card2_p2"]').value },
+                            { desc: document.querySelector('[name="sol_card2_p3"]').value },
+                        ],
+                    },
+                    {
+                        img: document.querySelector('[name="sol_card3_img"]').value,
+                        title: document.querySelector('[name="sol_card3_title"]').value,
+                        mechanismofoperation: [
+                            { desc: document.querySelector('[name="sol_card3_moo1"]').value },
+                            { desc: document.querySelector('[name="sol_card3_moo2"]').value },
+                            { desc: document.querySelector('[name="sol_card3_moo3"]').value },
+                        ],
+                        purpose: [
+                            { desc: document.querySelector('[name="sol_card3_p1"]').value },
+                            { desc: document.querySelector('[name="sol_card3_p2"]').value },
+                            { desc: document.querySelector('[name="sol_card3_p3"]').value },
+                        ],
+                    },
+                ],
+            },
+            product: {
+                title: document.querySelector('[name="product_title"]').value,
+                img: document.querySelector('[name="product_img"]').value,
+            },
+            benefit: {
+                title: document.querySelector('[name="benefit_title"]').value,
+                cards: [
+                    {
+                        title: document.querySelector('[name="ben_card1_title"]').value,
+                        img: document.querySelector('[name="ben_card1_img"]').value,
+                        desc: document.querySelector('[name="ben_card1_desc"]').value,
+                    },
+                    {
+                        title: document.querySelector('[name="ben_card2_title"]').value,
+                        img: document.querySelector('[name="ben_card2_img"]').value,
+                        desc: document.querySelector('[name="ben_card2_desc"]').value,
+                    },
+                    {
+                        title: document.querySelector('[name="ben_card3_title"]').value,
+                        img: document.querySelector('[name="ben_card3_img"]').value,
+                        desc: document.querySelector('[name="ben_card3_desc"]').value,
+                    },
+                    {
+                        title: document.querySelector('[name="ben_card4_title"]').value,
+                        img: document.querySelector('[name="ben_card4_img"]').value,
+                        desc: document.querySelector('[name="ben_card4_desc"]').value,
+                    },
+                ],
+            },
+            feedback: {
+                title: document.querySelector('[name="feedback_title"]').value,
+                cards: fb_customer,
+            },
+            voucher: {
+                title: document.querySelector('[name="voucher_title"]').value,
+                img: document.querySelector('[name="voucher_img"]').value,
+                end_date: document.querySelector('[name="voucher_enddate"]').value,
+                percent: document.querySelector('[name="voucher_percent"]').value
+            },
+            pageinfo: {
+                phone: document.querySelector('[name="pageinfo_phone"]').value,
+                email: document.querySelector('[name="pageinfo_email"]').value,
+                
+            }
+        };
+        
+        console.log(data);
+        $.ajax({
+            url: `/admin/page-config`,
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: (res) => {
+                console.log(res);
+                if (res.success) {
+                    myNotification('success', 'success');
+                }
+            },
+            error: (xhr, status, err) => {
+                console.log('Server error');
+                myNotification(xhr.responseJSON.mess || 'Server error', 'error');
+            },
+        });
+    });
+    // function saveSetting() {
+    //     const title = document.getElementById('titleInput').value;
+    //     const desc = document.getElementById('descInput').value;
+    //     alert(`Đã lưu:\nTiêu đề: ${title}\nMô tả: ${desc}`);
+    // }
+</script>

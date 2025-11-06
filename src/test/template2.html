@@ -1,0 +1,32 @@
+<section id="solution">
+    <div class="card">
+        <div
+            class="card-header d-flex justify-content-between align-items-center"
+            data-bs-toggle="collapse"
+            data-bs-target="#s_solution"
+            style="cursor: pointer"
+        >
+            <h5 class="mb-0">⚙️ Solution</h5>
+            <span class="text-muted">▼</span>
+        </div>
+
+        <div id="s_solution" class="collapse">
+            <div class="card-body"></div>
+        </div>
+    </div>
+</section>
+<!--  -->
+<label for="hero_img_primary" class="form-label">Primary image</label>
+<div class="input-group">
+    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+    <input
+        type="text"
+        name="sol_card1_img"
+        class="form-control"
+        placeholder="path value..."
+        value="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:''%>"
+    />
+</div>
+<div class="preview-wrapper">
+    <img src="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:'/imgs/default.png'%>" alt="" />
+</div>

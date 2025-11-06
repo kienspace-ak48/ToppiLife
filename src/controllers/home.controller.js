@@ -1,17 +1,22 @@
-const stringValue = require('../config/stringvalue.config')
+const stringValue = require('../config/stringvalue.config');
 const CNAME = 'home.controller.js ';
 const VNAME = 'home/';
+const PageConfigEntity = require('../models/PageConfig');
+const PageConfigService = require('../services/pageconfig.service');
 // const VLAYOUT = 'layouts/main';
 
 const homeController = {
-    Index: (req, res) => {
+    Index: async (req, res) => {
         try {
-            res.render('home', {layout: stringValue.VLAYOUTCLIENT, title: 'home'});
+            console.log('aaa');
+            const pc = await  PageConfigService.getAll();
+            
+            console.log(pc);
+            res.render('home', { layout: stringValue.VLAYOUTCLIENT, title: 'home', pc:pc||[] });
         } catch (error) {
-            res.render('home', {layout: stringValue.VLAYOUTCLIENT, title: 'home'})
+            res.render('home', { layout: stringValue.VLAYOUTCLIENT, title: 'home', pc:pc||[] });
         }
     },
 };
-
 
 module.exports = homeController;
