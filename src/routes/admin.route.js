@@ -6,6 +6,7 @@ const imageController = require('../controllers/image.controller')();
 const imageUploadFx = require('../config/imageUpload');
 
 router.get('/test', adminController.SaveConfig);
+router.get('/image/delete/:name', imageController.DeleteImage);
 router.post('/image/upload',imageUploadFx.single('image') ,imageController.UploadImage);
 router.get('/image', imageController.Index);
 

@@ -2,12 +2,15 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const expressEjsLayouts = require('express-ejs-layouts');
+const cookieParser = require('cookie-parser');
 // =================
 const myPathConfig = require('./config/mypath.config');
 const route = require('./routes');
-const dbConnection = require('./config/dbConnection.config')
+const dbConnection = require('./config/dbConnection.config');
+const UserEntity = require('./models/User');
 //midleware
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 // use static files
 app.use(express.static(path.join(myPathConfig.root, 'public')));
@@ -27,6 +30,29 @@ app.get('/api/product', (req, res)=>{
     const p = product;
     res.json(p);
 });
+// login with hard code
+app.post('/api/register',async (req, res)=>{
+    const user = new UserEntity({
+        username: 'kienvu',
+        email: 'admin@gmail.com',
+        password: '12345',
+        role: 'master',
+    });
+    const exit = await UserEntity.findOne({email: user.email});
+    if(exit){
+        return res.status(400).json({success: false, mess: 'Email da ton tai'});
+    }
+    await user.save();
+    res.json({success: true, mess: 'Dang ky thanh cong'});
+})
+app.get('/api/login', async (req, res)=>{
+    const {email, password} = req.query;
+    const user = await UserEntity.findOne({email: email});
+    if(!user) return res.status(400).json({success: false, mess: 'Email khong ton tai'});
+    const isMatch = await user.comparePassword(password);
+    if(!isMatch) return res.status(400).json({success: false, mess: 'Mat khau khong dung'});
+    res.json({success: true, mess: 'Dang nhap thanh cong'});
+})
 // ===========END TEST========//
 route(app);
 dbConnection();

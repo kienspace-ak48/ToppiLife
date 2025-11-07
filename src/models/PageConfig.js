@@ -54,7 +54,8 @@ const PageConfigSchema = new mongoose.Schema({
     },
     pageinfo:{
         phone: String,
-        email: String
+        email: String,
+        address: String
     }
 });
 

@@ -8,10 +8,8 @@ const PageConfigService = require('../services/pageconfig.service');
 const homeController = {
     Index: async (req, res) => {
         try {
-            console.log('aaa');
-            const pc = await  PageConfigService.getAll();
-            
-            console.log(pc);
+            const pc = await  PageConfigService.getAll();  
+            // console.log(pc);
             res.render('home', { layout: stringValue.VLAYOUTCLIENT, title: 'home', pc:pc||[] });
         } catch (error) {
             res.render('home', { layout: stringValue.VLAYOUTCLIENT, title: 'home', pc:pc||[] });

@@ -9,10 +9,6 @@ const VLAYOUT = 'layouts/adminLayout';
 const VNAME = 'admin/image/';
 //export kieu function
 module.exports = () => {
-    // const uploadDir = myPath.root + '/src/public/uploads/';
-    // if (!fs.existsSync(uploadDir)) {
-    //     fs.mkdirSync(uploadDir);
-    // }
     const uploadDir = path.join(pathConfig.root,'public','uploads','imgs');
     if(!fs.existsSync(uploadDir)){
         fs.mkdirSync(uploadDir);

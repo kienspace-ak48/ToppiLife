@@ -32,7 +32,7 @@
                     <%=(pc&&pc.hero)?pc.hero?.desc:'Sống khỏe mỗi ngày, làm việc hăng say'%>
                 </p>
                 <a
-                    href="#"
+                    href="https://zalo.me/<%=pc?.pageinfo?.phone%>" target="_blank"
                     class="w-full lg:w-[431px] h-[76px] lg:-h[79px] text-[21px] lg:text-[26px] leading-[100%] font-bold mt-4 mb-10 flex justify-center items-center rounded-full px-6 py-4 bg-[linear-gradient(184.88deg,#f7f200_4.18%,#feb928_96.35%)] shadow-[0_4px_24px_0_#00000040] uppercase"
                 >
                     Giải pháp của toppilife <i class="fa-solid fa-arrow-right text-lg ml-2"></i>
@@ -87,7 +87,7 @@
                         <div class="circle w-9 h-9 rounded-full bg-[#ff7979] flex justify-center items-center">
                             <img src="icons/tritangle.svg" alt="tritangle" class="h-4 w-4 text-lg" />
                         </div>
-                         <%=(pc&&pc.hero)?pc.hero.bubble_2:'Ngồi nhiều ít vật động'%>
+                         <%=(pc&&pc.hero)?pc.hero.bubble_3:'Ngồi nhiều ít vật động'%>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                         <img src="/icons/brain.svg" alt="icon-brain" class="w-12 h-12 text-lg" />
                     </div>
                     <h3
-                        class="title mt-4 text-[26px] font-bold leading-[100%] tracking-normal lg:text-[28px] lg:line-clamp-5"
+                        class="title mt-4 py-2 text-[26px] font-bold leading-[100%] tracking-normal lg:text-[28px] lg:line-clamp-5"
                     >
                         <%=(pc&&pc.hero)?pc.hero?.issues?.[0].title:'Căng thẳng vì deadline, làm việc 8 tiếng nhưng đầu óc lúc nào cũng quay cuồng.'%>
                     </h3>
@@ -114,7 +114,7 @@
                         <img src="/icons/six.svg" alt="icon-brain" class="w-12 h-12 text-lg" />
                     </div>
                     <h3
-                        class="title mt-4 text-[26px] font-bold leading-[100%] tracking-normal lg:text-[28px] lg:line-clamp-5"
+                        class="title mt-4 py-2 text-[26px] font-bold leading-[100%] tracking-normal lg:text-[28px] lg:line-clamp-5"
                     >
                         <%=(pc&&pc.hero)?pc.hero?.issues?.[1].title:'Căng thẳng vì deadline, làm việc 8 tiếng nhưng đầu óc lúc nào cũng quay cuồng.'%>
                     </h3>
@@ -127,7 +127,7 @@
                         <img src="/icons/cot.svg" alt="icon-brain" class="w-12 h-12 text-lg" />
                     </div>
                     <h3
-                        class="title mt-4 text-[26px] font-bold leading-[100%] tracking-normal lg:text-[28px] lg:line-clamp-5"
+                        class="title mt-4 py-2 text-[26px] font-bold leading-[100%] tracking-normal lg:text-[28px] lg:line-clamp-5"
                     >
                         <%=(pc&&pc.hero)?pc.hero?.issues?.[2].title:'Căng thẳng vì deadline, làm việc 8 tiếng nhưng đầu óc lúc nào cũng quay cuồng.'%>
                     </h3>
@@ -157,7 +157,7 @@
                             <%=(pc&&pc.hero)?pc.hero?.title_summary:''%>
                         </h2>
                         <a
-                            href="#"
+                            href="https://zalo.me/<%=pc?.pageinfo?.phone%>" target="_blank"
                             class="mt-5 w-[267px] h-[76px] text-[21px] font-bold flex justify-center items-center rounded-full px-6 lg:mt-[49px] py-4 bg-[linear-gradient(184.88deg,#f7f200_4.18%,#feb928_96.35%)] shadow-[0_4px_24px_0_#00000040] uppercase"
                         >
                             Tìm hiểu ngay <i class="fa-solid fa-arrow-right text-lg ml-2"></i>
@@ -186,147 +186,70 @@
         <div class="block lg:hidden">
             <div class="caurosel swiper solution_swiper">
                 <div class="swiper-wrapper">
+                    <%if(pc&& pc.solution){%>
+                <%pc.solution.cards.forEach(c=>{%>
                     <!-- card 1 -->
-                    <div class="swiper-slide">
+                     <div class="swiper-slide">
                         <div
-                            class="shrink-0 mt-8 card-item w-full lg:min-h-[772px] rounded-[30px] overflow-hidden shadow-md bg-[url('/imgs/bg-solution1.png')] bg-cover bg-no-repeat"
-                        >
-                            <!-- <div class="p-[5px]"> -->
-                            <!-- anh -->
-                            <div class="w-full aspect-400/250 overflow-hidden">
-                                <img
-                                    src="imgs/solution.jpg"
-                                    alt="img-solution"
-                                    class="w-full h-full object-cover rounded-[30px] p-[2%]"
-                                />
-                            </div>
+                    class="shrink-0 mt-8 card-item w-full lg:min-h-[772px] rounded-[30px] overflow-hidden shadow-md bg-[url('/imgs/bg-solution1.png')] bg-cover bg-no-repeat"
+                >
+                    <!-- <div class="p-[5px]"> -->
+                    <!-- anh -->
+                    <div class="w-full aspect-400/250 overflow-hidden">
+                        <img
+                            src="<%=c.img%>"
+                            alt="img-solution"
+                            class="w-full h-full object-cover rounded-[30px] p-[2%]"
+                        />
+                    </div>
 
-                            <!-- content -->
-                            <div class="p-5 lg:p-6">
-                                <h2 class="font-bold text-[24px] tracking-normal leading-[100%] mb-4 text-start">
-                                    CHẾ ĐỘ HIGHT POTENTIAL
-                                </h2>
-                                <!-- :co che hoat dong -->
-                                <div class="mb-5 text-start">
-                                    <div
-                                        class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                                    >
-                                        CƠ CHẾ HOẠT ĐỘNG
-                                    </div>
-                                    <ul class="space-y-2 text-[clamp(17px, 2vw,22px)] font-medium leading-snug">
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Khôi phục và ổn định điện thế màng tế bào</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Giúp hạn chế tác hại của các ion dư thừa và gốc tự do</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Giữ cho ty thể hoạt động ổn định, sản xuất ATP hiệu quả hơn</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- :cong dung -->
-                                <div class="text-start">
-                                    <div
-                                        class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                                    >
-                                        CÔNG DỤNG
-                                    </div>
-                                    <ul class="space-y-2 text-[clamp(17px,2vw,22px)] font-medium leading-snug">
-                                        <li class="flex items-start gap-2">
-                                            <span><i class="fa-regular fa-circle-check"></i></span
-                                            ><span>Cải thiện giấc ngủ sâu, rút ngắn thời gian vào giấc</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Giảm đau đầu, mệt mỏi, căng thẳng</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Hỗ trợ chống táo bón</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                    <!-- content -->
+                    <div class="p-5 lg:p-6">
+                        <h2 class="font-bold text-[24px] tracking-normal leading-[100%] mb-4">
+                            <%=c.title%>
+                        </h2>
+                        <!-- :co che hoat dong -->
+                        <div class="mb-5 text-start">
+                            <div
+                                class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
+                            >
+                                CƠ CHẾ HOẠT ĐỘNG
                             </div>
-                            <!-- </div> -->
+                            <ul class="space-y-2 text-[clamp(17px, 2vw,22px)] font-medium leading-snug">
+                                <%c.mechanismofoperation.forEach(m=>{%>
+                                    <li class="flex items-start gap-2">
+                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
+                                    <span><%=m.desc%></span>
+                                </li>
+                                <%}) %>
+                                
+                            </ul>
+                        </div>
+                        <!-- :cong dung -->
+                        <div class="text-start">
+                            <div
+                                class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
+                            >
+                                CÔNG DỤNG
+                            </div>
+                            <ul class="space-y-2 text-[clamp(17px,2vw,22px)] font-medium leading-snug">
+                                <%c.purpose.forEach(p=>{%>
+                                    <li class="flex items-start gap-2">
+                                    <span><i class="fa-regular fa-circle-check"></i></span
+                                    ><span><%=p.desc%></span>
+                                </li>
+                                <%})%>
+                             
+                            </ul>
                         </div>
                     </div>
-                    <!-- card 2 -->
-                    <div class="swiper-slide">
-                        <!-- card 2 -->
-                        <div
-                            class="shrink-0 mt-8 card-item w-full lg:min-h-[772px] rounded-[30px] overflow-hidden shadow-md bg-[url('/imgs/bg-solution2.png')] bg-cover bg-no-repeat"
-                        >
-                            <!-- <div class="p-[5px]"> -->
-                            <!-- anh -->
-                            <div class="w-full aspect-400/250 overflow-hidden">
-                                <img
-                                    src="imgs/solution2.png"
-                                    alt="img-solution"
-                                    class="w-full h-full object-cover rounded-[30px] p-[2%]"
-                                />
-                            </div>
-
-                            <!-- content -->
-                            <div class="p-5 lg:p-6">
-                                <h2 class="font-bold text-[24px] tracking-normal leading-[100%] mb-4">
-                                    CHẾ ĐỘ HIGHT POTENTIAL
-                                </h2>
-                                <!-- :co che hoat dong -->
-                                <div class="mb-5">
-                                    <div
-                                        class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                                    >
-                                        CƠ CHẾ HOẠT ĐỘNG
-                                    </div>
-                                    <ul class="space-y-2 text-[clamp(17px, 2vw,22px)] font-medium leading-snug">
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Khôi phục và ổn định điện thế màng tế bào</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Giúp hạn chế tác hại của các ion dư thừa và gốc tự do</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Giữ cho ty thể hoạt động ổn định, sản xuất ATP hiệu quả hơn</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- :cong dung -->
-                                <div>
-                                    <div
-                                        class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                                    >
-                                        CÔNG DỤNG
-                                    </div>
-                                    <ul class="space-y-2 text-[clamp(17px,2vw,22px)] font-medium leading-snug">
-                                        <li class="flex items-start gap-2">
-                                            <span><i class="fa-regular fa-circle-check"></i></span
-                                            ><span>Cải thiện giấc ngủ sâu, rút ngắn thời gian vào giấc</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Giảm đau đầu, mệt mỏi, căng thẳng</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Hỗ trợ chống táo bón</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                            <span>Hỗ trợ chống táo bón</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- </div> -->
-                        </div>
-                    </div>
+                    <!-- </div> -->
+                </div>
+                     </div>
+                
+                <%})%>
+            <%}%>
+                    
                 </div>
                 <div class="swiper-scrollbar"></div>
             </div>
@@ -397,208 +320,6 @@
                 </div>
                 <%})%>
             <%}%>
-                <!-- card 1 -->
-                <div
-                    class="shrink-0 mt-8 card-item w-full lg:min-h-[772px] rounded-[30px] overflow-hidden shadow-md bg-[url('/imgs/bg-solution1.png')] bg-cover bg-no-repeat"
-                >
-                    <!-- <div class="p-[5px]"> -->
-                    <!-- anh -->
-                    <div class="w-full aspect-400/250 overflow-hidden">
-                        <img
-                            src="imgs/solution.jpg"
-                            alt="img-solution"
-                            class="w-full h-full object-cover rounded-[30px] p-[2%]"
-                        />
-                    </div>
-
-                    <!-- content -->
-                    <div class="p-5 lg:p-6">
-                        <h2 class="font-bold text-[24px] tracking-normal leading-[100%] mb-4">
-                            CHẾ ĐỘ HIGHT POTENTIAL
-                        </h2>
-                        <!-- :co che hoat dong -->
-                        <div class="mb-5">
-                            <div
-                                class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                            >
-                                CƠ CHẾ HOẠT ĐỘNG
-                            </div>
-                            <ul class="space-y-2 text-[clamp(17px, 2vw,22px)] font-medium leading-snug">
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Khôi phục và ổn định điện thế màng tế bào</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Giúp hạn chế tác hại của các ion dư thừa và gốc tự do</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Giữ cho ty thể hoạt động ổn định, sản xuất ATP hiệu quả hơn</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- :cong dung -->
-                        <div>
-                            <div
-                                class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                            >
-                                CÔNG DỤNG
-                            </div>
-                            <ul class="space-y-2 text-[clamp(17px,2vw,22px)] font-medium leading-snug">
-                                <li class="flex items-start gap-2">
-                                    <span><i class="fa-regular fa-circle-check"></i></span
-                                    ><span>Cải thiện giấc ngủ sâu, rút ngắn thời gian vào giấc</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Giảm đau đầu, mệt mỏi, căng thẳng</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Hỗ trợ chống táo bón</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- </div> -->
-                </div>
-                <!-- card 2 -->
-                <div
-                    class="shrink-0 mt-8 card-item w-full lg:min-h-[772px] rounded-[30px] overflow-hidden shadow-md bg-[url('/imgs/bg-solution2.png')] bg-cover bg-no-repeat"
-                >
-                    <!-- <div class="p-[5px]"> -->
-                    <!-- anh -->
-                    <div class="w-full aspect-400/250 overflow-hidden">
-                        <img
-                            src="imgs/solution2.png"
-                            alt="img-solution"
-                            class="w-full h-full object-cover rounded-[30px] p-[2%]"
-                        />
-                    </div>
-
-                    <!-- content -->
-                    <div class="p-5 lg:p-6">
-                        <h2 class="font-bold text-[24px] tracking-normal leading-[100%] mb-4">
-                            CHẾ ĐỘ HIGHT POTENTIAL
-                        </h2>
-                        <!-- :co che hoat dong -->
-                        <div class="mb-5">
-                            <div
-                                class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                            >
-                                CƠ CHẾ HOẠT ĐỘNG
-                            </div>
-                            <ul class="space-y-2 text-[clamp(17px, 2vw,22px)] font-medium leading-snug">
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Khôi phục và ổn định điện thế màng tế bào</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Giúp hạn chế tác hại của các ion dư thừa và gốc tự do</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Giữ cho ty thể hoạt động ổn định, sản xuất ATP hiệu quả hơn</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- :cong dung -->
-                        <div>
-                            <div
-                                class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                            >
-                                CÔNG DỤNG
-                            </div>
-                            <ul class="space-y-2 text-[clamp(17px,2vw,22px)] font-medium leading-snug">
-                                <li class="flex items-start gap-2">
-                                    <span><i class="fa-regular fa-circle-check"></i></span
-                                    ><span>Cải thiện giấc ngủ sâu, rút ngắn thời gian vào giấc</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Giảm đau đầu, mệt mỏi, căng thẳng</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Hỗ trợ chống táo bón</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Hỗ trợ chống táo bón</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- </div> -->
-                </div>
-                <!-- card 3 -->
-                <div
-                    class="shrink-0 mt-8 card-item w-full lg:min-h-[772px] rounded-[30px] overflow-hidden shadow-md bg-[url('/imgs/bg-solution3.png')] bg-cover bg-no-repeat"
-                >
-                    <!-- <div class="p-[5px]"> -->
-                    <!-- anh -->
-                    <div class="w-full aspect-400/250 overflow-hidden">
-                        <img
-                            src="imgs/solution3.png"
-                            alt="img-solution"
-                            class="w-full h-full object-cover rounded-[30px] p-[2%]"
-                        />
-                    </div>
-
-                    <!-- content -->
-                    <div class="p-5 lg:p-6">
-                        <h2 class="font-bold text-[24px] tracking-normal leading-[100%] mb-4">
-                            CHẾ ĐỘ HIGHT POTENTIAL
-                        </h2>
-                        <!-- :co che hoat dong -->
-                        <div class="mb-5">
-                            <div
-                                class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                            >
-                                CƠ CHẾ HOẠT ĐỘNG
-                            </div>
-                            <ul class="space-y-2 text-[clamp(17px, 2vw,22px)] font-medium leading-snug">
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Khôi phục và ổn định điện thế màng tế bào</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Giúp hạn chế tác hại của các ion dư thừa và gốc tự do</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Giữ cho ty thể hoạt động ổn định, sản xuất ATP hiệu quả hơn</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- :cong dung -->
-                        <div>
-                            <div
-                                class="inline-block bg-black text-white text-sm font-semibold py-1 px-3 rounded-full mb-3"
-                            >
-                                CÔNG DỤNG
-                            </div>
-                            <ul class="space-y-2 text-[clamp(17px,2vw,22px)] font-medium leading-snug">
-                                <li class="flex items-start gap-2">
-                                    <span><i class="fa-regular fa-circle-check"></i></span
-                                    ><span>Cải thiện giấc ngủ sâu, rút ngắn thời gian vào giấc</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Giảm đau đầu, mệt mỏi, căng thẳng</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class=""><i class="fa-regular fa-circle-check"></i></span>
-                                    <span>Hỗ trợ chống táo bón</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- </div> -->
-                </div>
             </div>
         </div>
     </div>
@@ -615,7 +336,7 @@
             <div class="col-left">
                 <div class="flex justify-center items-center lg:block">
                     <img
-                        src="/imgs/product.png"
+                        src="<%=(pc&&pc.product)?pc.product?.img:'/imgs/product.png'%>"
                         alt="img-product"
                         class="w-[350px] h-[278px] lg:w-[447px] lg:h-[355px]"
                     />
@@ -623,9 +344,10 @@
             </div>
             <div class="col-right">
                 <h2 class="font-bold text-[32px] leading-8 tracking-normal lg:text-[46px] lg:leading-[60px]">
-                    Bắt đầu một ngày tràn đầy năng lượng cùng ToppiLife
+                    <%=(pc&&pc.product)?pc.product?.title:'/imgs/product.png'%>
                 </h2>
                 <a
+                href="https://zalo.me/<%=pc?.pageinfo?.phone%>" target="_blank"
                     class="mt-5 w-[267px] h-[76px] text-[21px] lg:text-[26px] lg:mt-7 font-bold flex justify-center items-center rounded-full px-6 py-4 bg-[linear-gradient(184.88deg,#f7f200_4.18%,#feb928_96.35%)] shadow-[0_4px_24px_0_#00000040] uppercase"
                 >
                     Tìm hiểu ngay <i class="fa-solid fa-arrow-right text-lg ml-2"></i>
@@ -649,14 +371,16 @@
         <!-- Swiper cho mobile/tablet -->
         <div class="benefit_swiper swiper lg:!hidden">
             <div class="swiper-wrapper">
-                <!-- Slide -->
+                <%if(pc&&pc.benefit){%>
+                <%pc.benefit.cards.forEach(c=>{%>
+<!-- Slide -->
                 <div class="swiper-slide">
                     <div
                         class="benefit-card min-h-[500px] bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] p-5"
                     >
                         <div class="card-img w-full h-[200px]">
                             <img
-                                src="/imgs/benefit-1.png"
+                                src="<%=c.img%>"
                                 alt=""
                                 class="w-full object-cover h-[200px] rounded-[20px]"
                                 loading="lazy"
@@ -664,87 +388,19 @@
                         </div>
                         <div class="card-content p-5">
                             <h3 class="font-bold text-[24px] leading-[100%] tracking-normal text-start">
-                                Ngủ sâu, phục hồi năng lượng
+                                <%=c.title%>
                             </h3>
                             <p class="font-medium text-[18px] leading-[26px] tracking-normal mt-3 text-start">
-                                Rút ngắn thời gian trằn trọc, giúp não bộ nghỉ ngơi trọn vẹn. Tinh thần thoải mái cũng
-                                giúp bạn hạn chế ăn vặt do stress – hỗ trợ kiểm soát cân nặng một cách tự nhiên
+                                <%=c.desc%>
                             </p>
                         </div>
                     </div>
                 </div>
+                    <%})%>
+            <%}%>
+                
 
-                <!-- Slide 2-->
-                <div class="swiper-slide">
-                    <div
-                        class="benefit-card min-h-[500px] bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] p-5"
-                    >
-                        <div class="card-img w-full h-[200px]">
-                            <img
-                                src="/imgs/benefit-2.png"
-                                alt=""
-                                class="w-full object-cover h-[200px] rounded-[20px]"
-                                loading="lazy"
-                            />
-                        </div>
-                        <div class="card-content p-5">
-                            <h3 class="font-bold text-[24px] leading-[100%] tracking-normal text-start">
-                                Giảm căng mỏi tức thì
-                            </h3>
-                            <p class="font-medium text-[18px] leading-[26px] tracking-normal mt-3 text-start">
-                                Tác động trực tiếp lên cơ bắp và dây thần kinh, giải tỏa áp lực vai gáy, lưng dưới.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide 3-->
-                <div class="swiper-slide">
-                    <div
-                        class="benefit-card min-h-[500px] bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] p-5"
-                    >
-                        <div class="card-img w-full h-[200px]">
-                            <img
-                                src="/imgs/benefit-3.png"
-                                alt=""
-                                class="w-full object-cover h-[200px] rounded-[20px]"
-                                loading="lazy"
-                            />
-                        </div>
-                        <div class="card-content p-5">
-                            <h3 class="font-bold text-[24px] leading-[100%] tracking-normal text-start">
-                                Ngủ sâu, phục hồi năng lượng
-                            </h3>
-                            <p class="font-medium text-[18px] leading-[26px] tracking-normal mt-3 text-start">
-                                Rút ngắn thời gian trằn trọc, giúp não bộ nghỉ ngơi trọn vẹn. Tinh thần thoải mái cũng
-                                giúp bạn hạn chế ăn vặt do stress – hỗ trợ kiểm soát cân nặng một cách tự nhiên
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide 4-->
-                <div class="swiper-slide">
-                    <div
-                        class="benefit-card min-h-[500px] bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] p-5"
-                    >
-                        <div class="card-img w-full h-[200px]">
-                            <img
-                                src="/imgs/benefit-4.png"
-                                alt=""
-                                class="w-full object-cover h-[200px] rounded-[20px]"
-                                loading="lazy"
-                            />
-                        </div>
-                        <div class="card-content p-5">
-                            <h3 class="font-bold text-[24px] leading-[100%] tracking-normal text-start">
-                                Ngủ sâu, phục hồi năng lượng
-                            </h3>
-                            <p class="font-medium text-[18px] leading-[26px] tracking-normal mt-3 text-start">
-                                Rút ngắn thời gian trằn trọc, giúp não bộ nghỉ ngơi trọn vẹn. Tinh thần thoải mái cũng
-                                giúp bạn hạn chế ăn vặt do stress – hỗ trợ kiểm soát cân nặng một cách tự nhiên
-                            </p>
-                        </div>
-                    </div>
-                </div>
+              
             </div>
             <div class="swiper-pagination mt-6"></div>
             <div class="swiper-scrollbar"></div>
@@ -752,81 +408,28 @@
 
         <!-- Grid hiển thị cố định cho màn hình lớn -->
         <div class="carousel hidden lg:grid lg:grid-cols-2 lg:gap-7">
-            <!-- card 1 -->
-            <div
+            <%if(pc&&pc.benefit){%>
+                <%pc.benefit.cards.forEach(c=>{%>
+                    <div
                 class="benefit-card bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] flex flex-col p-5 lg:flex lg:flex-row lg:flex-nowrap lg:gap-x-5 lg:min-w-[245px]"
             >
                 <img
-                    src="/imgs/benefit-1.png"
+                    src="<%=c.img%>"
                     alt="img-benefit-1"
                     class="w-full h-[200px] object-cover rounded-[22px] flex-1"
                 />
                 <div class="benefit-content flex-2">
                     <h3 class="title font-bold text-2xl leading-[100%] tracking-normal my-[15px]">
-                        Ngủ sâu, phục hồi năng lượng
+                        <%=c.title%>
                     </h3>
                     <p class="font-medium text-[18px] leading-[26px] tracking-normal mt-[30px] lg:line-clamp-6">
-                        Rút ngắn thời gian trằn trọc, giúp não bộ nghỉ ngơi trọn vẹn. Tinh thần thoải mái cũng giúp bạn
-                        hạn chế ăn vặt do stress – hỗ trợ kiểm soát cân nặng một cách tự nhiên
+                        <%=c.desc%>
                     </p>
                 </div>
             </div>
-            <!-- card 2 -->
-            <div
-                class="benefit-card bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] flex flex-col p-5 lg:flex lg:flex-row lg:flex-nowrap lg:gap-x-5 lg:min-w-[245px]"
-            >
-                <img
-                    src="/imgs/benefit-2.png"
-                    alt="img-benefit-2"
-                    class="w-full h-[200px] object-cover rounded-[22px] flex-1"
-                />
-                <div class="benefit-content flex-2">
-                    <h3 class="title font-bold text-2xl leading-[100%] tracking-normal my-[15px]">
-                        Ngủ sâu, phục hồi năng lượng
-                    </h3>
-                    <p class="font-medium text-[18px] leading-[26px] tracking-normal mt-[30px] lg:line-clamp-6">
-                        Rút ngắn thời gian trằn trọc, giúp não bộ nghỉ ngơi trọn vẹn. Tinh thần thoải mái cũng giúp bạn
-                        hạn chế ăn vặt do stress – hỗ trợ kiểm soát cân nặng một cách tự nhiên
-                    </p>
-                </div>
-            </div>
-            <!-- card 3 -->
-            <div
-                class="benefit-card bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] flex flex-col p-5 lg:flex lg:flex-row lg:flex-nowrap lg:gap-x-5 lg:min-w-[245px]"
-            >
-                <img
-                    src="/imgs/benefit-3.png"
-                    alt="img-benefit-3"
-                    class="w-full h-[200px] object-cover rounded-[22px] flex-1"
-                />
-                <div class="benefit-content flex-3">
-                    <h3 class="title font-bold text-2xl leading-[100%] tracking-normal my-[15px]">
-                        Tăng sức đề kháng & sự dẻo dai
-                    </h3>
-                    <p class="font-medium text-[18px] leading-[26px] tracking-normal mt-[30px] lg:line-clamp-6">
-                        Rút ngắn thời gian trằn trọc, giúp não bộ nghỉ ngơi trọn vẹn. Tinh thần thoải mái cũng giúp bạn
-                        hạn chế ăn vặt do stress – hỗ trợ kiểm soát cân nặng một cách tự nhiên
-                    </p>
-                </div>
-            </div>
-            <!-- card 4 -->
-            <div
-                class="benefit-card bg-[linear-gradient(97deg,#fff_7.3%,rgba(255,255,255,0.2)_124.1%)] rounded-[20px] flex flex-col p-5 lg:flex lg:flex-row lg:flex-nowrap lg:gap-x-5 lg:min-w-[245px]"
-            >
-                <img
-                    src="/imgs/benefit-4.png"
-                    alt="img-benefit-4"
-                    class="w-full h-[200px] object-cover rounded-[22px] flex-1"
-                />
-                <div class="benefit-content flex-2">
-                    <h3 class="title font-bold text-2xl leading-[100%] tracking-normal my-[15px]">
-                        Làm việc tập trung & sáng tạo hơn
-                    </h3>
-                    <p class="font-medium text-[18px] leading-[26px] tracking-normal mt-[30px] lg:line-clamp-6">
-                        Tế bào được “nạp pin”, hỗ trợ cơ thể chống lại mệt mỏi văn phòng mãn tính.
-                    </p>
-                </div>
-            </div>
+                <%})%>
+            <%}%>
+            
         </div>
     </div>
 </section>
@@ -850,7 +453,7 @@
                     <!-- Video -->
                     <video
                         id="myVideo"
-                        src="/vids/attractive_women.mp4"
+                        src="/vids/women_morning.mp4" 
                         class="w-full h-full object-cover rounded-[14px]"
                         controls
                         playsinline
@@ -955,7 +558,7 @@
                 Thì đây chính là giải pháp giúp bạn tìm lại sự cân bằng giấc ngủ và cơ thể tràn đầy năng lượng.
             </p>
             <a
-                href="#"
+                href="https://zalo.me/<%=pc?.pageinfo?.phone%>" target="_blank"
                 class="mt-10 h-[76px] lg:w-[340px] text-[21px] font-bold mb-10 flex justify-center items-center rounded-full px-6 py-4 bg-[linear-gradient(184.88deg,#f7f200_4.18%,#feb928_96.35%)] shadow-[0_4px_24px_0_#00000040] uppercase"
             >
                 Tư vấn giải pháp<i class="fa-solid fa-arrow-right text-lg ml-2"></i>
@@ -977,7 +580,9 @@
             <div class="swiper story_swiper story-carousel lg:w-[86%]">
                 <!-- wrapper -->
                 <div class="swiper-wrapper">
-                    <!-- card 1 -->
+                    <%if(pc&&pc.feedback){%>
+                        <%pc.feedback.cards.forEach(c=>{%>
+                            <!-- card 1 -->
                     <div class="swiper-slide">
                         <div
                             class="card min-h-[482px] w-full lg:px-[8%] bg-white shadow-[0_0_24px_0_#00000029] rounded-[50px] flex flex-col justify-center items-center"
@@ -989,104 +594,31 @@
                                 <p
                                     class="story line-clamp-6 font-semibold text-[19px] leading-[30px] tracking-normal text-center lg:text-[30px] lg:leading-[41px]"
                                 >
-                                    Trước đây, tôi thường xuyên thức đến 2 giờ sáng để chạy báo cáo. Từ khi dùng sản
-                                    phẩm, tôi dễ ngủ hơn, buổi sáng tỉnh táo, giảm hẳn cảm giác ê ẩm. Một giấc ngủ trọn
-                                    vẹn thực sự là món quà vô giá
+                                    <%=c.quote%>
                                 </p>
                             </div>
                             <div class="info pt-2 pb-5 w-full min-w-36 flex flex-col justify-center items-center">
                                 <div class="img w-[70px] h-[70px]">
                                     <img
-                                        src="/imgs/avatar.png"
+                                        src="<%=c.img%>"
                                         alt="story-avatar"
                                         class="w-[70px] h-[70px] rounded-full p-1 object-cover"
                                     />
                                 </div>
                                 <div class="name font-bold text-6 leading-[26px] tracking-normal p-2 text-center">
-                                    Tuấn, 30 tuổi
+                                    <%=c.name%>
                                 </div>
                                 <div
                                     class="role font-semibold text-[18px] leading-[100%] tracking-normal text-center text-[#0BA84C]"
                                 >
-                                    Lập trình viên
+                                    <%=c.job%>
                                 </div>
                             </div>
                         </div>
                     </div>
+                        <%})%>
+                    <%}%>
                     <!--  -->
-                    <!-- Card 1 -->
-                    <div class="swiper-slide">
-                        <div
-                            class="card min-h-[482px] w-full lg:px-[8%] bg-white shadow-[0_0_24px_0_#00000029] rounded-[50px] flex flex-col justify-center items-center"
-                        >
-                            <div class="info-top p-5">
-                                <div class="icon w-full h-16 text-center pb-5">
-                                    <i class="fa-solid fa-quote-right w-10 h-10 text-[40px] text-[#0BA84C]"></i>
-                                </div>
-                                <p
-                                    class="story line-clamp-6 font-semibold text-[19px] leading-[30px] tracking-normal text-center lg:text-[30px] lg:leading-[41px]"
-                                >
-                                    Tôi đã thử nhiều sản phẩm hỗ trợ giấc ngủ nhưng chỉ khi dùng sản phẩm này, tôi mới
-                                    cảm nhận được sự khác biệt thật sự. Giấc ngủ sâu hơn, sáng dậy không còn mệt mỏi —
-                                    cảm giác như được “reset” lại năng lượng mỗi ngày.
-                                </p>
-                            </div>
-                            <div class="info pt-2 pb-5 w-full min-w-36 flex flex-col justify-center items-center">
-                                <div class="img w-[70px] h-[70px]">
-                                    <img
-                                        src="/imgs/avatar2.png"
-                                        alt="story-avatar"
-                                        class="w-[70px] h-[70px] rounded-full p-1 object-cover"
-                                    />
-                                </div>
-                                <div class="name font-bold text-6 leading-[26px] tracking-normal p-2 text-center">
-                                    Minh Anh, 27 tuổi
-                                </div>
-                                <div
-                                    class="role font-semibold text-[18px] leading-[100%] tracking-normal text-center text-[#0BA84C]"
-                                >
-                                    Nhân viên Marketing
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="swiper-slide">
-                        <div
-                            class="card min-h-[482px] w-full lg:px-[8%] bg-white shadow-[0_0_24px_0_#00000029] rounded-[50px] flex flex-col justify-center items-center"
-                        >
-                            <div class="info-top p-5">
-                                <div class="icon w-full h-16 text-center pb-5">
-                                    <i class="fa-solid fa-quote-right w-10 h-10 text-[40px] text-[#0BA84C]"></i>
-                                </div>
-                                <p
-                                    class="story line-clamp-6 font-semibold text-[19px] leading-[30px] tracking-normal text-center lg:text-[30px] lg:leading-[41px]"
-                                >
-                                    Sau vài tuần sử dụng, tôi cảm nhận rõ rệt sự thay đổi — ngủ ngon, đầu óc nhẹ nhàng
-                                    hơn và tập trung tốt hơn trong công việc. Tôi rất hài lòng và đã giới thiệu cho bạn
-                                    bè cùng sử dụng.
-                                </p>
-                            </div>
-                            <div class="info pt-2 pb-5 w-full min-w-36 flex flex-col justify-center items-center">
-                                <div class="img w-[70px] h-[70px]">
-                                    <img
-                                        src="/imgs/avatar3.png"
-                                        alt="story-avatar"
-                                        class="w-[70px] h-[70px] rounded-full p-1 object-cover"
-                                    />
-                                </div>
-                                <div class="name font-bold text-6 leading-[26px] tracking-normal p-2 text-center">
-                                    Hương, 34 tuổi
-                                </div>
-                                <div
-                                    class="role font-semibold text-[18px] leading-[100%] tracking-normal text-center text-[#0BA84C]"
-                                >
-                                    Giáo viên
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- nếu dùng pagination/navigation/scrollbar -->
                 <div class="swiper-pagination"></div>
@@ -1160,7 +692,7 @@
                     <div
                         class="img min-h-[258px] my-5 pt-12 w-full mx-auto drop-shadow-lg lg:h-[400px] lg:w-full lg:pt-0"
                     >
-                        <img src="/imgs/product.png" alt="ToppiLife Product" class="object-cover w-full h-auto" />
+                        <img src="<%=(pc&&pc.voucher)?pc.voucher?.img:''%>" alt="ToppiLife Product" class="object-cover w-full h-auto" />
                     </div>
                     <div
                         class="absolute top-7 right-7 bg-white rounded-full px-4 py-1 h-[90px] shadow-[0_4px_14px_0_#00000026] flex justify-center items-center font-bold"
@@ -1169,7 +701,7 @@
                             class="circle rounded-full bg-[#0ba84c] h-[62px] w-[62px] flex justify-center items-center text-center"
                             ><i class="fa-solid fa-ticket mr-2 text-white w-[33px] h-[33px] text-[30px]"></i
                         ></span>
-                        <span class="text-[46px] text-[#0ba84c] ml-3 font-bold">-20%</span>
+                        <span class="text-[46px] text-[#0ba84c] ml-3 font-bold">-<%=(pc&&pc.voucher)?pc.voucher?.percent:'0'%>%</span>
                     </div>
                 </div>
             </div>
@@ -1180,7 +712,7 @@
                     <p
                         class="font-bold text-[32px] leading-[38px] lg:text-[36px] lg:leading-[40px] tracking-normal text-start pt-5"
                     >
-                        Hãy để ToppiLife mang lại cho bạn sự thư giãn, tập trung và hiệu suất vượt trội.
+                        <%=(pc&&pc.voucher)?pc.voucher?.title:'Hãy để ToppiLife mang lại cho bạn sự thư giãn, tập trung và hiệu suất vượt trội.'%>
                     </p>
                     <p class="font-medium italic text-[20px] leading-[26px] tracking-normal py-5">
                         Đầu tư cho sức khỏe chính là nền tảng của thành công!
@@ -1201,7 +733,7 @@
                         <p
                             class="high-line font-bold text-[30px] leading-[115%] uppercase tracking-normal py-1 text-[#FF0E0E]"
                         >
-                            Giảm ngay 20%
+                            Giảm ngay <%=(pc&&pc.voucher)?pc.voucher?.percent:''%>%
                         </p>
                         <p class="font-bold text-[17px] leading-[115%]">cho đơn hàng đầu tiên</p>
                     </div>
@@ -1230,6 +762,7 @@
 
                 <!-- CTA -->
                 <a
+                href="https://zalo.me/<%=pc?.pageinfo?.phone%>" target="_blank"
                     class="mt-5 w-full h-[76px] text-[21px] font-bold flex justify-center uppercase items-center rounded-full px-6 py-4 bg-[linear-gradient(184.88deg,#f7f200_4.18%,#feb928_96.35%)] shadow-[0_4px_24px_0_#00000040] uppercase"
                 >
                     ĐĂNG KÝ TRẢI NGHIỆM &nbsp;<span class="hidden lg:block"> NGAY HÔM NAY</span
@@ -1244,6 +777,7 @@
     // global scope
     let benefitSwiperInstance = null;
     let solutionSwiperInstance = null;
+    let saleEndTimeServer ='<%=(pc.voucher)?pc.voucher?.end_date:"" %>'
     function initBenefitSwiper() {
         if (window.innerWidth < 1024 && !benefitSwiperInstance) {
             benefitSwiperInstance = new Swiper('.benefit_swiper', {
@@ -1307,7 +841,7 @@
     //Countting down
     
   // 👉 đặt ngày hết hạn (ví dụ 5/11/2025 23:59:59)
-  const saleEndTime = new Date("Nov 8, 2025 23:59:59").getTime();
+  const saleEndTime = new Date(saleEndTimeServer).getTime();
 
   const countdown = setInterval(() => {
     const now = new Date().getTime();

@@ -61,19 +61,13 @@ const AdminController = {
         res.render(VNAME + 'index', { layout: VLAYOUT, title: 'Admin' });
     },
     PageConfig:async (req, res) => {
-        console.log('running');
         const pc =await PageConfigService.getAll();
         const imgList = await ImageService.GetAll();;
-        console.log(imgList)
-        // console.log(pc);
         res.render(VNAME + 'pageconfig/index', { layout: VLAYOUT, title: 'Page config', pc:pc||{}, imgs:imgList||[]});
     },
     SaveConfig: async (req, res) => {
         const data = req.body;
         try {
-            // const result =await PageConfigService.getAll();
-            console.log(data);
-            console.log(data.solution.cards)
             const dto = dataTransfer(data);
             const result = await PageConfigService.create(dto);
             console.log(result);

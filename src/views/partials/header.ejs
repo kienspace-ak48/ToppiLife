@@ -15,18 +15,30 @@
 
     <!-- Hotline (chỉ hiện trên md trở lên) -->
     <div class="hidden md:block">
-      <div class="bg-black text-white font-semibold px-6 py-2 rounded-full">
-        Hotline: 0123 456 789
-      </div>
+      <a id="hotline" 
+   href="tel:<%=pc?.pageinfo?.phone%>" 
+   class="bg-black text-white font-semibold px-6 py-2 rounded-full whitespace-nowrap">
+  Hotline: <span id="hotline_number"><%=pc?.pageinfo?.phone%></span>
+</a>
     </div>
+<script>
+  const phoneEl = document.getElementById('hotline_number');
+  if (phoneEl) {
+    let phone = phoneEl.textContent.trim();
 
+    // Chỉ format nếu là 10 số
+    if (/^\d{10}$/.test(phone)) {
+      phoneEl.textContent = phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+    }
+  }
+</script>
     <!-- Nhóm action cho mobile -->
     <div class="flex gap-x-3 md:hidden">
-      <div class="cta-call">
+      <a href="tel:<%=pc?.pageinfo?.phone%>" class="cta-call">
         <div class="circle w-12 h-12 bg-[#0BA84C] rounded-full flex justify-center items-center">
           <i class="fa-solid fa-phone-volume text-white text-lg"></i>
         </div>
-      </div>
+      </a>
       <div class="menu" id="menuBtn">
         <div class="circle w-12 h-12 bg-[#22BDB6] rounded-full flex justify-center items-center">
           <i class="fa-solid fa-bars text-white text-xl"></i>

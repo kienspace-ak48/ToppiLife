@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 router.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
@@ -9,8 +10,8 @@ router.post('/login', (req, res) => {
             // return res.redirect('/admin/dashboard');
             return res.status(200).json({success: true, redirect: '/admin/dashboard/home'})
         }
-        //   res.redirect("/admin/auth");
-        res.json({ success: false, mess:'Password or account not correct!' });
+          res.redirect("/admin/auth");
+        // res.json({ success: false, mess:'Password or account not correct!' });
     } catch (error) {
         console.log(error.message);
         res.status(500).json({success: false, mess: error.message})
