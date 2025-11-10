@@ -5,6 +5,7 @@ const CNAME = 'admin.controller.js';
 const PageConfigService = require('../services/pageconfig.service');
 const ImageService = require('../services/image.service');
 const imageService = require('../services/image.service');
+const VideoEntity= require('../models/Video');
 
 const dataTransfer = (data) => {
     const dataTransfer = {
@@ -33,6 +34,13 @@ const dataTransfer = (data) => {
             title: data.benefit.title,
             cards: data.benefit.cards
         },
+        whychooseus: {
+            video: data.whychooseus.video,
+            title: data.whychooseus.title,
+            cards: data.whychooseus.cards,
+            img: data.whychooseus.img,
+            ifyou: data.whychooseus.ifyou
+        },
         feedback: {
             title: data.feedback.title,
             cards: data.feedback.cards
@@ -45,7 +53,8 @@ const dataTransfer = (data) => {
         },
         pageinfo: {
             phone: data.pageinfo.phone,
-            email: data.pageinfo.email
+            email: data.pageinfo.email,
+            address: data.pageinfo.address
         }
     };
     return dataTransfer;
@@ -62,8 +71,10 @@ const AdminController = {
     },
     PageConfig:async (req, res) => {
         const pc =await PageConfigService.getAll();
-        const imgList = await ImageService.GetAll();;
-        res.render(VNAME + 'pageconfig/index', { layout: VLAYOUT, title: 'Page config', pc:pc||{}, imgs:imgList||[]});
+        const imgList = await ImageService.GetAll();
+        const videos = await VideoEntity.find().lean();
+        console.log(videos);
+        res.render(VNAME + 'pageconfig/index', { layout: VLAYOUT, title: 'Page config', pc:pc||{}, imgs:imgList||[] , videos: videos||[]});
     },
     SaveConfig: async (req, res) => {
         const data = req.body;

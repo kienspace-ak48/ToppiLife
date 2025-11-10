@@ -1,8 +1,8 @@
 const stringValue = require('../config/stringvalue.config');
 const CNAME = 'home.controller.js ';
 const VNAME = 'home/';
-const PageConfigEntity = require('../models/PageConfig');
 const PageConfigService = require('../services/pageconfig.service');
+
 // const VLAYOUT = 'layouts/main';
 
 const homeController = {

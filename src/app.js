@@ -45,14 +45,7 @@ app.post('/api/register',async (req, res)=>{
     await user.save();
     res.json({success: true, mess: 'Dang ky thanh cong'});
 })
-app.get('/api/login', async (req, res)=>{
-    const {email, password} = req.query;
-    const user = await UserEntity.findOne({email: email});
-    if(!user) return res.status(400).json({success: false, mess: 'Email khong ton tai'});
-    const isMatch = await user.comparePassword(password);
-    if(!isMatch) return res.status(400).json({success: false, mess: 'Mat khau khong dung'});
-    res.json({success: true, mess: 'Dang nhap thanh cong'});
-})
+
 // ===========END TEST========//
 route(app);
 dbConnection();

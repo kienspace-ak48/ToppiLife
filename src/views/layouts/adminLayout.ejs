@@ -31,18 +31,22 @@
                 </a>
             </div>
             <ul>
-                <li>
-                    <a href="/admin/dashboard"><i>🏡</i><span>Home</span></a>
-                </li>
-                <li>
-                    <a href="/admin/page-config"><i>📄</i><span>Page setting</span></a>
-                </li>
-                <li>
-                    <a href="/admin/image"><i>🖼️</i><span>Gallery</span></a>
-                </li>
-                <li style="background-color: #2e2e44" class="logout">
-                    <a href="/admin/auth/logout"><i>🔒</i><span>Logout</span></a>
-                </li>
+                <a href="/admin/dashboard">
+                    <li><i>🏡</i><span>Home</span></li>
+                </a>
+
+                <a href="/admin/page-config">
+                    <li><i>📄</i><span>Page setting</span></li>
+                </a>
+                <a href="/admin/image">
+                    <li><i>🖼️</i><span>Gallery</span></li>
+                </a>
+                <a href="/admin/video">
+                    <li><i>📽️</i><span>Gallery</span></li>
+                </a>
+                <a href="/admin/auth/logout">
+                    <li style="background-color: #2e2e44" class="logout"><i>🔒</i><span>Logout</span></li>
+                </a>
             </ul>
         </div>
         <div class="main">
@@ -51,9 +55,7 @@
             <div class="main-container"><%- body%></div>
             <%- include('../admin/partials/footer.ejs')%>
         </div>
-        <!-- my nofication -->
-
-        <!-- script -->
+        <!-- ========== script -->
         <!-- <script src="/js/admin.js"></script> -->
         <script>
             const sidebar = document.getElementById('sidebar');

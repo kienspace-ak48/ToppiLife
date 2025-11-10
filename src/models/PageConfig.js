@@ -40,6 +40,21 @@ const PageConfigSchema = new mongoose.Schema({
             {title: String, img: String, desc: String, _id: false}
         ]
     },
+    whychooseus:{
+        title: String,
+        cards:[
+            {title: String, subtitle: String}
+        ],
+        img: String,
+        ifyou:{
+            title: String,
+            line1: String, 
+            line2: String,
+            line3: String,
+            summary: String
+        },
+        video: String
+    },
     feedback:{
         title: String,
         cards: [

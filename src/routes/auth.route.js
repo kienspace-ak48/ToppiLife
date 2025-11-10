@@ -11,13 +11,13 @@ router.post('/login', async (req, res) => {
     const user = await UserEntity.findOne({ email: username });
     if (!user) return res.redirect("/admin/auth");// return res.status(400).json({ success: false, mess: 'Email khong ton tai' });
     const isMatch = await user.comparePassword(password);
-    if (isMatch) {
-        const token = jwt.sign({ _id: user._id }, SECRET, { expiresIn: '1d' });
+    if (isMatch && user.role === 'master') {
+        const token = jwt.sign({ _id: user._id }, SECRET, { expiresIn: '30m' });
         res.cookie('token', token, {
             httpOnly: true,
             secure: false,
             sameSite: 'strict',
-            maxAge: 24 * 60 * 60 * 1000, //1 day
+            maxAge: 30* 60 * 1000, //1 day 24 * 60 * 60 * 1000
         });
         // res.json({ success: true, mess: 'Dang nhap thanh cong', token });
         res.redirect('/admin/dashboard')

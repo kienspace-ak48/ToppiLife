@@ -441,7 +441,8 @@
 >
     <div class="main-container">
         <h2 class="title font-bold text-[32px] leading-10 tracking-normal text-center pt-8 mb-8">
-            Điều gì khiến ToppiLife được nhiều dân văn phòng lựa chọn
+            <!-- Điều gì khiến ToppiLife được nhiều dân văn phòng lựa chọn -->
+             <%= (pc && pc.whychooseus) ? pc.whychooseus?.title : 'Điều gì khiến ToppiLife được nhiều dân văn phòng lựa chọn' %>
         </h2>
         <!-- video -->
         <div class="flex justify-center">
@@ -450,10 +451,10 @@
                 class="h-[250px] mb-[25px] w-full p-[5px] rounded-2xl bg-gradient-to-r from-[#08E9FC] via-[#0464D5] to-[#564CDD] animate-gradient inline-block lg:min-h-[690px] lg:w-[90%]"
             >
                 <div class="relative rounded-[14px] bg-white w-full h-full overflow-hidden z-10">
-                    <!-- Video -->
+                    <!-- Video /vids/women_morning.mp4-->
                     <video
                         id="myVideo"
-                        src="/vids/women_morning.mp4" 
+                        src="<%=(pc&&pc.whychooseus)?(`/uploads/vids/`+pc.whychooseus?.video):'/vids/women_morning.mp4'%>" 
                         class="w-full h-full object-cover rounded-[14px]"
                         controls
                         playsinline
@@ -477,12 +478,14 @@
                     </div>
                     <div class="content">
                         <h4 class="title font-bold text-[22px] leading-[100%] tracking-normal text-center">
-                            Chuẩn công nghệ Châu Âu
+                            <!-- Chuẩn công nghệ Châu Âu -->
+                             <%= (pc && pc.whychooseus) ? pc.whychooseus?.cards[0]?.title : 'Chuẩn công nghệ Châu Âu' %>
                         </h4>
                         <p
                             class="desc font-medium text-[20px] leading-[26px] tracking-normal text-center py-[26px] line-clamp-2"
                         >
-                            Độc quyền mẫu mã, nhập khẩu chính hãng
+                            <!-- Độc quyền mẫu mã, nhập khẩu chính hãng -->
+                                <%= (pc && pc.whychooseus) ? pc.whychooseus?.cards[0]?.subtitle : 'Độc quyền mẫu mã, nhập khẩu chính hãng' %>
                         </p>
                     </div>
                 </div>
@@ -495,12 +498,14 @@
                     </div>
                     <div class="content">
                         <h4 class="title font-bold text-[22px] leading-[100%] tracking-normal text-center">
-                            Tiện lợi ngay tại văn phòng
+                            <!-- Tiện lợi ngay tại văn phòng -->
+                             <%= (pc && pc.whychooseus) ? pc.whychooseus?.cards[1]?.title : 'Tiện lợi ngay tại văn phòng' %>
                         </h4>
                         <p
                             class="desc font-medium text-[20px] leading-[26px] tracking-normal text-center py-[26px] line-clamp-2"
                         >
-                            Máy gọn nhẹ dễ mang theo, chỉ vài phút đã thấy thư giãn.
+                            <!-- Máy gọn nhẹ dễ mang theo, chỉ vài phút đã thấy thư giãn. -->
+                             <%= (pc && pc.whychooseus) ? pc.whychooseus?.cards[1]?.subtitle : 'Máy gọn nhẹ dễ mang theo, chỉ vài phút đã thấy thư giãn.' %>
                         </p>
                     </div>
                 </div>
@@ -513,12 +518,14 @@
                     </div>
                     <div class="content">
                         <h4 class="title font-bold text-[22px] leading-[100%] tracking-normal text-center">
-                            Hiệu quả nhanh chóng
+                            <!-- Hiệu quả nhanh chóng -->
+                             <%= (pc && pc.whychooseus) ? pc.whychooseus?.cards[2]?.title : 'Hiệu quả nhanh chóng' %>
                         </h4>
                         <p
                             class="desc font-medium text-[20px] leading-[26px] tracking-normal text-center py-[26px] line-clamp-2"
                         >
-                            Cảm nhận rõ rệt sự thay đổi chỉ sau vài buổi sử dụng.
+                            <!-- Cảm nhận rõ rệt sự thay đổi chỉ sau vài buổi sử dụng. -->
+                             <%= (pc && pc.whychooseus) ? pc.whychooseus?.cards[2]?.subtitle : 'Cảm nhận rõ rệt sự thay đổi chỉ sau vài buổi sử dụng.' %>
                         </p>
                     </div>
                 </div>
@@ -532,30 +539,35 @@
     >
         <div class="col-left">
             <div class="img-wrapper mt-[30px] h-[310px] w-full p-2.5 bg-white rounded-[50px] lg:h-[500px] lg:w-[500px]">
-                <img src="/imgs/choose.png" alt="img-choose" class="object-cover rounded-[50px] h-full w-full" />
+                <img src="<%=(pc&&pc.whychooseus)?pc.whychooseus?.img:'/imgs/choose.png'%>" alt="img-choose" class="object-cover rounded-[50px] h-full w-full" />
             </div>
         </div>
 
         <div class="col-right">
-            <h2 class="title font-bold text-[36px] leading-[50px] tracking-normal text-start my-[18px]">Nếu bạn là</h2>
+            <h2 class="title font-bold text-[36px] leading-[50px] tracking-normal text-start my-[18px]"> <%=(pc && pc.whychooseus) ? pc.whychooseus?.ifyou?.title:'' %> </h2>
 
             <p
                 class="desc bg-white text-black font-semibold text-[20px] leading-[100%] tracking-normal py-[15px] px-[15px] rounded-[40px]"
             >
-                Nhân viên văn phòng thường xuyên mệt mỏi, căng thẳng.
+                <!-- Nhân viên văn phòng thường xuyên mệt mỏi, căng thẳng. -->
+                 <%= (pc && pc.whychooseus) ? pc.whychooseus?.ifyou?.line1 : 'Nhân viên văn phòng thường xuyên mệt mỏi, căng thẳng.' %>
             </p>
             <p
                 class="desc mt-4 bg-white text-black font-semibold text-[20px] leading-[100%] tracking-normal py-[15px] px-[15px] rounded-[40px]"
             >
-                Người mất ngủ, khó ngủ vì áp lực công việc.
+                <!-- Người mất ngủ, khó ngủ vì áp lực công việc. -->
+                 <%= (pc && pc.whychooseus) ? pc.whychooseus?.ifyou?.line2 : 'Người mất ngủ, khó ngủ vì áp lực công việc.' %>
             </p>
             <p
                 class="desc mt-4 bg-white text-black font-semibold text-[20px] leading-[100%] tracking-normal py-[15px] px-[15px] rounded-[40px]"
             >
-                Dân công sở đau mỏi vai gáy, tê bì tay chân do ngồi lâu.
+                <!-- Dân công sở đau mỏi vai gáy, tê bì tay chân do ngồi lâu. -->
+                 <%= (pc && pc.whychooseus) ? pc.whychooseus?.ifyou?.line3 : 'Dân công sở đau mỏi vai' %>
             </p>
             <p class="summary font-bold lg:text-[28px] lg:leading-[34px] lg:my-[15px] lg:block hidden">
-                Thì đây chính là giải pháp giúp bạn tìm lại sự cân bằng giấc ngủ và cơ thể tràn đầy năng lượng.
+                <!-- Thì đây chính là giải pháp giúp bạn tìm lại sự cân bằng giấc ngủ và cơ thể tràn đầy năng lượng. -->
+                 <%= (pc && pc.whychooseus) ? pc.whychooseus?.ifyou?.summary : 'Thì đây chính là giải pháp giúp bạn tìm lại sự cân bằng giấc ngủ và cơ thể tràn đầy năng lượng.' %>
+
             </p>
             <a
                 href="https://zalo.me/<%=pc?.pageinfo?.phone%>" target="_blank"

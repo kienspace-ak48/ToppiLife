@@ -15,7 +15,6 @@ function isAuthenticated(req, res, next){
     req.user = decode;
     next();
   } catch (error) {
-    console.log('aaa')
     // res.status(401).json({success: false, mess: 'Token khong hop le, vui long dang nhap lai'});
     return res.redirect('/admin/auth');
   }

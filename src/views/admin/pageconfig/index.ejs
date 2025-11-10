@@ -79,6 +79,31 @@
             height: 100%;
             object-fit: cover;
         }
+        /* video */
+    .video-card {
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .video-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    .video-wrapper {
+        width: 100%;
+        height: 180px;
+        background: #000;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 </style>
 <div class="my-card" style="min-height: 500px">
     <button class="btn btn-primary" id="cta-saveConfig">Save Config</button>
@@ -802,6 +827,79 @@
             </div>
         </div>
     </section>
+    <!-- whychooseus -->
+     <section id="whychooseus">
+    <div class="card">
+        <div
+            class="card-header d-flex justify-content-between align-items-center"
+            data-bs-toggle="collapse"
+            data-bs-target="#s_whychooseus"
+            style="cursor: pointer"
+        >
+            <h5 class="mb-0">⚙️ WhyChooseus</h5>
+            <span class="text-muted">▼</span>
+        </div>
+
+        <div id="s_whychooseus" class="collapse">
+            <div class="card-body">
+                <label for="" class="form-label">Title</label>
+                <input type="text" name="wcu_title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.title:''%>"> <br>
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary cta-choose-video">Choose video</button>
+                    <input
+                        type="text"
+                        id="whychooseus_video"
+                        name="whychooseus_video"
+                        class="form-control"
+                        placeholder="path value..."
+                        value="<%=(pc&&pc.whychooseus)?pc.whychooseus?.video:''%>"
+                    />
+                </div>
+                <!--  -->
+                <div class="row">
+                    
+                    <div class="col-6">
+                <label for="" class="form-label">Card 1</label>
+                <input type="text" class="form-control" name="wcs_card1_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[0]?.title:''%>">
+                <input type="text" name="wcs_card1_sub-title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[0]?.subtitle:''%>" >
+                <label for="" class="form-label">Card 2</label>
+                <input type="text" class="form-control" name="wcs_card2_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[1]?.title:''%>">
+                <input type="text" name="wcs_card2_sub-title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[1]?.subtitle:''%>">
+                <label for="" class="form-label">Card 3</label>
+                <input type="text" class="form-control" name="wcs_card3_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[2]?.title:''%>">
+                <input type="text" name="wcs_card3_sub-title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[2]?.subtitle:''%>" >
+                    </div>
+                    <div class="col-6">
+                        
+                    <label for="" class="form-lable">--If you--</label>
+                    <input type="text" class="form-control" name="wcs_ifyou_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.ifyou?.title:''%>">
+                    <label for="">3 line</label>
+                    <input type="text" class="form-control" name="wcs_ifyou_desc1" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.ifyou?.line1:''%>">
+                    <input type="text" class="form-control" name="wcs_ifyou_desc2" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.ifyou?.line2:''%>">
+                    <input type="text" class="form-control" name="wcs_ifyou_desc3" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.ifyou?.line3:''%>">
+                    <label for="">Summanry</label>
+                    <input type="text" class="form-control" name="wc_ifyou_summary" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.ifyou?.summary:''%>">
+                    <!--  -->
+                    <label for="hero_img_primary" class="form-label">wcu img</label>
+<div class="input-group">
+    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+    <input
+        type="text"
+        name="wcu_img"
+        class="form-control"
+        placeholder="path value..."
+        value="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:''%>"
+    />
+</div>
+<div class="preview-wrapper">
+    <img src="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:'/imgs/default.png'%>" alt="" />
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- feedback -->
     <section id="feedback">
         <div class="card">
@@ -826,7 +924,7 @@
                         <!-- <h3 class="mb-4">🗣️ Form nhập cảm nhận khách hàng (Dynamic)</h3> -->
 
                         <button id="btnAddCustomer" class="btn btn-primary mb-3">+ Thêm khách hàng</button>
-                        <button id="btnGetData" class="btn btn-success mb-3 ms-2">💾 Lấy dữ liệu</button>
+                        <!-- <button id="btnGetData" class="btn btn-success mb-3 ms-2">💾 Lấy dữ liệu</button> -->
 
                         <div class="customers-container">
                             <!-- new -->
@@ -950,6 +1048,8 @@
                     <input type="text" name="pageinfo_email" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.email:''%>"  class="form-control" placeholder="admin@gmail.com">
                     <label for="" class="form-label">Phone number</label>
                     <input type="text" name="pageinfo_phone" class="form-control" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.phone:''%>" placeholder="19001900">
+                    <label for="" class="form-label">Address</label>
+                    <input type="text" name="pageinfo_address" class="form-control" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.address:''%>" placeholder="123 Đường ABC, Quận XYZ, TP.HCM">
                 </div>
             </div>
         </div>
@@ -981,6 +1081,34 @@
         </div>
     </div>
 </div>
+<!-- video -->
+<div class="modal fade" id="chooseVideoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Chọn video</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3 video-list">
+          <% videos.forEach(file => { %>
+            <div class="col-6 col-md-3">
+              <div class="card video-card shadow-sm border-0">
+                <div class="video-wrapper">
+                  <video src="<%= file.path %>" muted loop preload="metadata"></video>
+                </div>
+                <div class="card-body text-center">
+                  <a href="#!" data-path="<%=file.name%>" class="cta-choose-card-video btn btn-outline-info btn-sm w-75">🗑 Delete</a>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!--  =====================SCRIPT HERE=================-->
   <!-- Template -->
     <script type="text/template" id="customerTemplate" defer>
@@ -1018,7 +1146,10 @@
     // global scope
     const modalEl = document.querySelector('#chooseImageModal');
     const modal = new bootstrap.Modal(modalEl);
+    const modalVideoEl = document.querySelector('#chooseVideoModal');
+    const modalVideo = new bootstrap.Modal(modalVideoEl);
     var groupTarget = null;
+    var videoTarget = null;
     var fb_customer = [];
     const btnAddCustomer = document.getElementById('btnAddCustomer');
     const customersContainer = document.querySelector('.customers-container');
@@ -1040,6 +1171,11 @@
             groupTarget = this;
         });
     });
+    // mo modal choose video
+    document.querySelector('#s_whychooseus .cta-choose-video').addEventListener('click', function (ev) {
+            modalVideo.show();
+            videoTarget = this;
+        });
     // Thêm khách hàng mới
     btnAddCustomer.addEventListener('click', () => {
             const wrapper = document.createElement('div');
@@ -1059,22 +1195,22 @@
         });
     // 
     // get data
-    const btnGetData = document.getElementById('btnGetData');
-    btnGetData.addEventListener('click', () => {
-        const cards = document.querySelectorAll('.customer-card');
-        const data = [];
-            cards.forEach((card) => {
-                const img = card.querySelector(".form-control[name='sol_card1_img']")?.value || '';
-                const name = card.querySelector('.name')?.value.trim() || '';
-                const job = card.querySelector('.job')?.value.trim() || '';
-                const quote = card.querySelector('.quote')?.value.trim() || '';
+    // const btnGetData = document.getElementById('btnGetData');
+    // btnGetData.addEventListener('click', () => {
+    //     const cards = document.querySelectorAll('.customer-card');
+    //     const data = [];
+    //         cards.forEach((card) => {
+    //             const img = card.querySelector(".form-control[name='sol_card1_img']")?.value || '';
+    //             const name = card.querySelector('.name')?.value.trim() || '';
+    //             const job = card.querySelector('.job')?.value.trim() || '';
+    //             const quote = card.querySelector('.quote')?.value.trim() || '';
 
-                data.push({ img, name, job, quote });
-            });
-            // temp
-            fb_customer = data;
-            console.log(data); // ✅ In ra mảng dữ liệu khách hàng
-        });
+    //             data.push({ img, name, job, quote });
+    //         });
+    //         // temp
+    //         fb_customer = data;
+    //         console.log(data); // ✅ In ra mảng dữ liệu khách hàng
+    //     });
     //fx get card data
     function dataCardFeedback(){
         const cards = document.querySelectorAll('.customer-card');
@@ -1091,6 +1227,18 @@
             fb_customer = data;
             console.log(data); // ✅ In ra mảng dữ liệu khách hàng
     } 
+    // 
+    document.querySelectorAll('#chooseVideoModal .video-list .cta-choose-card-video').forEach((thumb, i) => {
+        thumb.addEventListener('click', function (ev) {
+            // const value = ev.currentTarget;
+            // console.log(thumb)
+            // var name = thumb.dataset.name;
+            var path = thumb.dataset.path;
+            // alert(path)
+            document.getElementById('whychooseus_video').value = path;
+            modalVideo.hide();
+        });
+    });
     // 
     document.querySelectorAll('#chooseImageModal .img-list .card').forEach((thumb, i) => {
         thumb.addEventListener('click', function (ev) {
@@ -1223,6 +1371,33 @@
                     },
                 ],
             },
+            whychooseus: {
+                video: document.querySelector('[name="whychooseus_video"]').value,
+                img: document.querySelector('[name="wcu_img"]').value,
+                title: document.querySelector('[name="wcu_title"]').value,
+                cards: [
+                    {
+                        title: document.querySelector('[name="wcs_card1_title"]').value,
+                        subtitle: document.querySelector('[name="wcs_card1_sub-title"]').value,
+                    },
+                    {
+                        title: document.querySelector('[name="wcs_card2_title"]').value,
+                        subtitle: document.querySelector('[name="wcs_card2_sub-title"]').value,
+                    },
+                    {
+                        title: document.querySelector('[name="wcs_card3_title"]').value,
+                        subtitle: document.querySelector('[name="wcs_card3_sub-title"]').value,
+                    },
+                ],
+                ifyou: {
+                    title: document.querySelector('[name="wcs_ifyou_title"]').value,
+                    line1: document.querySelector('[name="wcs_ifyou_desc1"]').value,
+                    line2: document.querySelector('[name="wcs_ifyou_desc2"]').value,
+                    line3: document.querySelector('[name="wcs_ifyou_desc3"]').value,
+                    summary: document.querySelector('[name="wc_ifyou_summary"]').value,
+                }
+
+            },  
             feedback: {
                 title: document.querySelector('[name="feedback_title"]').value,
                 cards: fb_customer,
@@ -1236,6 +1411,7 @@
             pageinfo: {
                 phone: document.querySelector('[name="pageinfo_phone"]').value,
                 email: document.querySelector('[name="pageinfo_email"]').value,
+                address: document.querySelector('[name="pageinfo_address"]').value,
                 
             }
         };
