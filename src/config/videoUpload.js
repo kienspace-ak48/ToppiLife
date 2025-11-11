@@ -8,13 +8,15 @@ const uploadDir = path.join(myPath.root, '/public/uploads/vids');
 if (!fs.existsSync(uploadDir)){
     fs.mkdirSync(uploadDir, { recursive: true });
 }
+
 // Multer storage configuration
 const storege = multer.diskStorage({
     destination: (req, file, cb)=>{
         cb(null, uploadDir);
     },
     filename: (req, file, cb)=>{
-        cb(null, Date.now()+'-'+file.originalname.toLowerCase());
+        console.log(file)
+        cb(null, Date.now()+'-'+path.parse(file.originalname).name.toLowerCase());
     }
 });
 // File filter to accept only video files

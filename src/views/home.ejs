@@ -646,41 +646,41 @@
     class="warranty bg-[linear-gradient(180deg,rgba(239,248,241,.9)_0%,rgba(227,251,251,.9)_100%)] lg:mx-[2%] lg:rounded-[30px] lg:mt-[30px] py-[30px]"
 >
     <div class="main-container">
-        <h2 class="title font-bold text-[32px] leading-10 tracking-normal py-4 text-center">Cam kết bảo hành</h2>
+        <h2 class="title font-bold text-[32px] leading-10 tracking-normal py-4 text-center"><%=(pc&&pc.commitment)?pc.commitment?.title:''%></h2>
         <div class="warranty-list grid grid-cols-2 sm:grid-cols-2 sm:p-1 lg:grid-cols-4 gap-4 p-4">
             <div
                 class="bg-[rgba(255,255,255,.4)] h-[230px] border-[#0BA84C] border-[3px] rounded-[20px] p-4 flex flex-col gap-5 justify-center items-center"
             >
-                <img src="/icons/warr-1.svg" alt="img-warr1" />
+                <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[0]:'/icons/warr-1.svg'%>" alt="img-warr1" />
                 <p class="desc font-bold text-[18px] text-[#FF0000] leading-[22px] tracking-normal text-center">
-                    Bảo hành chính hãng 12 tháng
+                    <%=(pc&&pc.commitment)?pc.commitment?.descs?.[0]:'Bảo hành chính hãng 12 tháng'%>
                 </p>
             </div>
             <!-- 2 -->
             <div
                 class="bg-[rgba(255,255,255,.4)] h-[230px] border-[#0BA84C] border-[3px] rounded-[20px] p-4 flex flex-col gap-5 justify-center items-center"
             >
-                <img src="/icons/warr-2.svg" alt="img-warr2" />
+                <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[1]:'/icons/warr-2.svg'%>" alt="img-warr2" />
                 <p class="desc font-bold text-[18px] text-[#FF0000] leading-[22px] tracking-normal text-center">
-                    Đổi mới trong 7 ngày nếu có lỗi từ nhà sản xuất
+                    <%=(pc&&pc.commitment)?pc.commitment?.descs?.[1]:'Bảo hành chính hãng 12 tháng'%>
                 </p>
             </div>
             <!-- 3 -->
             <div
                 class="bg-[rgba(255,255,255,.4)] h-[230px] border-[#0BA84C] border-[3px] rounded-[20px] p-4 flex flex-col gap-5 justify-center items-center"
             >
-                <img src="/icons/warr-3.svg" alt="img-warr3" />
+                <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[2]:'/icons/warr-3.svg'%>" alt="img-warr3" />
                 <p class="desc font-bold text-[18px] leading-[22px] tracking-normal text-center">
-                    Hỗ trợ tư vấn & chăm sóc trọn đời
+                    <%=(pc&&pc.commitment)?pc.commitment?.descs?.[2]:'Bảo hành chính hãng 12 tháng'%>
                 </p>
             </div>
             <!-- 4 -->
             <div
                 class="bg-[rgba(255,255,255,.4)] h-[230px] border-[#0BA84C] border-[3px] rounded-[20px] p-4 flex flex-col gap-5 justify-center items-center"
             >
-                <img src="/icons/warr-4.svg" alt="img-warr4" />
+                <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[3]:'/icons/warr-4.svg'%>" alt="img-warr4" />
                 <p class="desc font-bold text-[18px] leading-[22px] tracking-normal text-center">
-                    Giao hàng toàn quốc – Thanh toán khi nhận hàng
+                    <%=(pc&&pc.commitment)?pc.commitment?.descs?.[3]:'Bảo hành chính hãng 12 tháng'%>
                 </p>
             </div>
         </div>

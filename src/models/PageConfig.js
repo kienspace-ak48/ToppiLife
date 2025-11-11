@@ -61,6 +61,14 @@ const PageConfigSchema = new mongoose.Schema({
             {quote: String, img: String, name: String, job: String, _id:false}
         ]
     },
+    commitment:{
+        title: String,
+        icons:[
+            String
+        ],
+        descs: [String]
+    }
+    ,
     voucher:{
         title: String,
         img: String,

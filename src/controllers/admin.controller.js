@@ -45,6 +45,11 @@ const dataTransfer = (data) => {
             title: data.feedback.title,
             cards: data.feedback.cards
         },
+        commitment: {
+            title: data.commitment.title,
+            icons: data.commitment.icons,
+            descs: data.commitment.descs,
+        },
         voucher: {
             title: data.voucher.title,
             img: data.voucher.img,
@@ -73,7 +78,7 @@ const AdminController = {
         const pc =await PageConfigService.getAll();
         const imgList = await ImageService.GetAll();
         const videos = await VideoEntity.find().lean();
-        console.log(videos);
+        // console.log(videos);
         res.render(VNAME + 'pageconfig/index', { layout: VLAYOUT, title: 'Page config', pc:pc||{}, imgs:imgList||[] , videos: videos||[]});
     },
     SaveConfig: async (req, res) => {

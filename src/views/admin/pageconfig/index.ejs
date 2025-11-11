@@ -975,6 +975,95 @@
             </div>
         </div>
     </section>
+    <!-- commitment -->
+     <section id="commitment">
+    <div class="card">
+        <div
+            class="card-header d-flex justify-content-between align-items-center"
+            data-bs-toggle="collapse"
+            data-bs-target="#s_commitment"
+            style="cursor: pointer"
+        >
+            <h5 class="mb-0">⚙️ Commitment</h5>
+            <span class="text-muted">▼</span>
+        </div>
+
+        <div id="s_commitment" class="collapse">
+            <div class="card-body">
+                <label class="form-label" for="">title</label>
+                <input type="text" name="commit_title" value="<%=(pc&&pc.commitment)?pc.commitment?.title:''%>" class="form-control" placeholder="title...">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="hero_img_primary" class="form-label">Icon 1</label>
+                        <input type="text" name="commit_desc1" class="form-control" placeholder="desc..." value="<%=(pc&&pc.commitment)?pc.commitment?.descs?.[0]:''%>">
+                        <div class="input-group">
+                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                            <input
+                                type="text"
+                                name="commit_icon1"
+                                class="form-control"
+                                placeholder="path value..."
+                                value="<%=(pc&&pc.commitment)?pc.commitment?.icons[0]:'/imgs/default.png'%>"
+                            />
+                        </div>
+                        <div class="preview-wrapper">
+                            <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[0]:'/imgs/default.png'%>" alt="" />
+                        </div>
+                        <!--  -->
+                        <label for="hero_img_primary" class="form-label">Icon 2</label>
+                        <input type="text" name="commit_desc2" class="form-control" placeholder="desc..." value="<%=(pc&&pc.commitment)?pc.commitment?.descs?.[1]:''%>">
+                        <div class="input-group">
+                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                            <input
+                                type="text"
+                                name="commit_icon2"
+                                class="form-control"
+                                placeholder="path value..."
+                                value="<%=(pc&&pc.commitment)?pc.commitment?.icons[1]:'/imgs/default.png'%>"
+                            />
+                        </div>
+                        <div class="preview-wrapper">
+                            <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[1]:'/imgs/default.png'%>" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="hero_img_primary" class="form-label">Icon 3</label>
+                        <input type="text" name="commit_desc3" class="form-control" placeholder="desc..." value="<%=(pc&&pc.commitment)?pc.commitment?.descs?.[2]:''%>">
+                        <div class="input-group">
+                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                            <input
+                                type="text"
+                                name="commit_icon3"
+                                class="form-control"
+                                placeholder="path value..."
+                                value="<%=(pc&&pc.commitment)?pc.commitment?.icons[2]:'/imgs/default.png'%>"
+                            />
+                        </div>
+                        <div class="preview-wrapper">
+                            <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[2]:'/imgs/default.png'%>" alt="" />
+                        </div>
+                        <!-- icon 4 -->
+                        <label for="hero_img_primary" class="form-label">Primary image</label>
+                        <input type="text" name="commit_desc4" class="form-control" placeholder="desc..." value="<%=(pc&&pc.commitment)?pc.commitment?.descs?.[3]:''%>">
+                        <div class="input-group">
+                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                            <input
+                                type="text"
+                                name="commit_icon4"
+                                class="form-control"
+                                placeholder="path value..."
+                                value="<%=(pc&&pc.commitment)?pc.commitment?.icons[3]:'/imgs/default.png'%>"
+                            />
+                        </div>
+                        <div class="preview-wrapper">
+                            <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[3]:'/imgs/default.png'%>" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- voucher -->
      <section id="voucher">
     <div class="card">
@@ -1098,7 +1187,7 @@
                   <video src="<%= file.path %>" muted loop preload="metadata"></video>
                 </div>
                 <div class="card-body text-center">
-                  <a href="#!" data-path="<%=file.name%>" class="cta-choose-card-video btn btn-outline-info btn-sm w-75">🗑 Delete</a>
+                  <a href="#!" data-path="<%=file.name%>" class="cta-choose-card-video btn btn-outline-secondary btn-sm w-75">Choose</a>
                 </div>
               </div>
             </div>
@@ -1407,6 +1496,22 @@
                 img: document.querySelector('[name="voucher_img"]').value,
                 end_date: document.querySelector('[name="voucher_enddate"]').value,
                 percent: document.querySelector('[name="voucher_percent"]').value
+            },
+            commitment: {
+                title: document.querySelector('[name="commit_title"]').value,
+                icons: [
+                    icon1= document.querySelector('[name="commit_icon1"]').value,
+                    icon2= document.querySelector('[name="commit_icon2"]').value,
+                    icon3= document.querySelector('[name="commit_icon3"]').value,
+                    icon4= document.querySelector('[name="commit_icon4"]').value,
+                ],
+                descs: [
+                    desc1= document.querySelector('[name="commit_desc1"]').value,
+                    desc2= document.querySelector('[name="commit_desc2"]').value,
+                    desc3= document.querySelector('[name="commit_desc3"]').value,
+                    desc4= document.querySelector('[name="commit_desc4"]').value,
+
+            ]
             },
             pageinfo: {
                 phone: document.querySelector('[name="pageinfo_phone"]').value,
