@@ -6,6 +6,7 @@ const PageConfigService = require('../services/pageconfig.service');
 const ImageService = require('../services/image.service');
 const imageService = require('../services/image.service');
 const VideoEntity= require('../models/Video');
+const UserEntity = require('../models/User');
 
 const dataTransfer = (data) => {
     const dataTransfer = {
@@ -72,12 +73,13 @@ async function GetAllImageHelper(){
 // 
 const AdminController = {
     Index: (req, res) => {
-        res.render(VNAME + 'index', { layout: VLAYOUT, title: 'Admin' });
+        res.render(VNAME + 'index', { layout: VLAYOUT, title: 'Admin', username: req.user.username });
     },
     PageConfig:async (req, res) => {
         const pc =await PageConfigService.getAll();
         const imgList = await ImageService.GetAll();
         const videos = await VideoEntity.find().lean();
+        
         // console.log(videos);
         res.render(VNAME + 'pageconfig/index', { layout: VLAYOUT, title: 'Page config', pc:pc||{}, imgs:imgList||[] , videos: videos||[]});
     },

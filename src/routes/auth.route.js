@@ -12,7 +12,7 @@ router.post('/login', async (req, res) => {
     if (!user) return res.redirect("/admin/auth");// return res.status(400).json({ success: false, mess: 'Email khong ton tai' });
     const isMatch = await user.comparePassword(password);
     if (isMatch && user.role === 'master') {
-        const token = jwt.sign({ _id: user._id }, SECRET, { expiresIn: '30m' });
+        const token = jwt.sign({ _id: user._id, username: user.username }, SECRET, { expiresIn: '30m' });
         res.cookie('token', token, {
             httpOnly: true,
             secure: false,

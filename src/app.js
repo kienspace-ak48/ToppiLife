@@ -20,31 +20,16 @@ app.set('views', path.join(myPathConfig.root, 'src', 'views'));
 app.use(expressEjsLayouts);
 app.set('layout', 'layouts/main');
 // ==========TEST AREA========//
-// comon
-app.get('/test', (req, res) => {
-    res.send({ title: 'Hello world', status: 'OK', mess: 'Hi', project: 'ToppiLife business' });
-});
-// api
-const product=[{id: "SP001", name: "Pepsi"}, {id: "SP002", name: "Banh mi"}]
-app.get('/api/product', (req, res)=>{
-    const p = product;
-    res.json(p);
-});
-// login with hard code
-app.post('/api/register',async (req, res)=>{
-    const user = new UserEntity({
-        username: 'kienvu',
-        email: 'admin@gmail.com',
-        password: '12345',
-        role: 'master',
-    });
-    const exit = await UserEntity.findOne({email: user.email});
-    if(exit){
-        return res.status(400).json({success: false, mess: 'Email da ton tai'});
-    }
-    await user.save();
-    res.json({success: true, mess: 'Dang ky thanh cong'});
-})
+// // comon
+// app.get('/test', (req, res) => {
+//     res.send({ title: 'Hello world', status: true, mess: 'Hi', project: 'ToppiLife business' });
+// });
+// // api
+// const product=[{id: "SP001", name: "Pepsi"}, {id: "SP002", name: "Banh mi"}]
+// app.get('/api/product', (req, res)=>{
+//     const p = product;
+//     res.json(p);
+// });
 
 // ===========END TEST========//
 route(app);
