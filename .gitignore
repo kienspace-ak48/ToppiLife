@@ -145,3 +145,6 @@ tailwind.config.js
 .prettierrc
 package-lock.json
 test
+docker-compose.yml
+Dockerfile
+dump/

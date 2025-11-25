@@ -60,7 +60,12 @@ const dataTransfer = (data) => {
         pageinfo: {
             phone: data.pageinfo.phone,
             email: data.pageinfo.email,
-            address: data.pageinfo.address
+            address: data.pageinfo.address,
+            title: data.pageinfo.title,
+            desc: data.pageinfo.desc,
+            keywords: data.pageinfo.keywords,
+            gg_a: data.pageinfo.gg_a,
+            gg_wt: data.pageinfo.gg_wt
         }
     };
     return dataTransfer;

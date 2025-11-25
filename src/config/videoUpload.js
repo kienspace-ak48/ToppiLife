@@ -16,7 +16,7 @@ const storege = multer.diskStorage({
     },
     filename: (req, file, cb)=>{
         console.log(file)
-        cb(null, Date.now()+'-'+path.parse(file.originalname).name.toLowerCase());
+        cb(null, Date.now()+'-'+file.originalname.toLowerCase());
     }
 });
 // File filter to accept only video files

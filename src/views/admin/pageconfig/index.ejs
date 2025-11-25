@@ -1139,6 +1139,17 @@
                     <input type="text" name="pageinfo_phone" class="form-control" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.phone:''%>" placeholder="19001900">
                     <label for="" class="form-label">Address</label>
                     <input type="text" name="pageinfo_address" class="form-control" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.address:''%>" placeholder="123 Đường ABC, Quận XYZ, TP.HCM">
+                    <hr>
+                    <label for="" class="form-laebl">Website name</label>
+    <input type="text" id="webname" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.title:''%>" />
+    <label for="" class="form-laebl">Desc</label>
+    <input type="text" id="desc" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.desc:''%>" />
+    <label for="" class="form-laebl">Keyword</label>
+    <input type="text" id="keywords" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.keywords:''%>" />
+    <label for="" class="form-laebl">Google Analytics</label>
+    <input type="text" id="gg_a" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.gg_a:''%>" />
+    <label for="" class="form-laebl">Google Webmaster Tool</label>
+    <input type="text" id="gg_wt" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.gg_wt:''%>" />
                 </div>
             </div>
         </div>
@@ -1517,6 +1528,13 @@
                 phone: document.querySelector('[name="pageinfo_phone"]').value,
                 email: document.querySelector('[name="pageinfo_email"]').value,
                 address: document.querySelector('[name="pageinfo_address"]').value,
+                title: document.getElementById('webname').value,
+                desc: document.getElementById('desc').value,
+                keywords: document.getElementById('keywords').value,
+                gg_a: document.getElementById('gg_a').value,
+                gg_wt: document.getElementById('gg_wt').value,
+
+
                 
             }
         };
