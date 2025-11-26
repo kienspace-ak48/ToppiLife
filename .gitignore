@@ -148,3 +148,4 @@ test
 #docker-compose.yml
 #Dockerfile
 dump/
+.env.example
