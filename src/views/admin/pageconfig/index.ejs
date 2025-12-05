@@ -1290,6 +1290,14 @@
             groupTarget = this;
         });
     });
+    //fix
+    customersContainer.addEventListener('click', function(ev){
+        if (ev.target.classList.contains("remove-card")) {
+        const card = ev.target.closest(".customer-card");
+        if (card) card.remove();
+    }
+    })
+    //
     // mo modal choose video
     document.querySelector('#s_whychooseus .cta-choose-video').addEventListener('click', function (ev) {
             modalVideo.show();
