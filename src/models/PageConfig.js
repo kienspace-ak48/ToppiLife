@@ -76,7 +76,10 @@ const PageConfigSchema = new mongoose.Schema({
         percent: Number
     },
     pageinfo:{
+        footer_title: String,
+        og_share: String,
         phone: String,
+        zalo:String,
         email: String,
         address: String,
         title: String,

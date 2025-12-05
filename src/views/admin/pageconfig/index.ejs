@@ -1137,19 +1137,38 @@
                     <input type="text" name="pageinfo_email" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.email:''%>"  class="form-control" placeholder="admin@gmail.com">
                     <label for="" class="form-label">Phone number</label>
                     <input type="text" name="pageinfo_phone" class="form-control" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.phone:''%>" placeholder="19001900">
+                    <label for="" class="form-label">Zalo</label>
+                    <input type="text" name="pageinfo_zalo" class="form-control" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.zalo:''%>" placeholder="19001900">
                     <label for="" class="form-label">Address</label>
                     <input type="text" name="pageinfo_address" class="form-control" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.address:''%>" placeholder="123 Đường ABC, Quận XYZ, TP.HCM">
+                    <label for="" class="form-label">Footer title</label>
+                    <input type="text" name="footertitle" class="form-control" value="<%=(pc&&pc.pageinfo)?pc.pageinfo.footer_title:''%>" placeholder="Title....">
+                    <br>
                     <hr>
                     <label for="" class="form-laebl">Website name</label>
-    <input type="text" id="webname" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.title:''%>" />
-    <label for="" class="form-laebl">Desc</label>
-    <input type="text" id="desc" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.desc:''%>" />
-    <label for="" class="form-laebl">Keyword</label>
-    <input type="text" id="keywords" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.keywords:''%>" />
-    <label for="" class="form-laebl">Google Analytics</label>
-    <input type="text" id="gg_a" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.gg_a:''%>" />
-    <label for="" class="form-laebl">Google Webmaster Tool</label>
-    <input type="text" id="gg_wt" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.gg_wt:''%>" />
+                    <input type="text" id="webname" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.title:''%>" />
+                    <label for="" class="form-laebl">Desc</label>
+                    <input type="text" id="desc" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.desc:''%>" />
+                    <label for="" class="form-laebl">Keyword</label>
+                    <input type="text" id="keywords" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.keywords:''%>" />
+                    <label for="" class="form-laebl">Google Analytics</label>
+                    <input type="text" id="gg_a" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.gg_a:''%>" />
+                    <label for="" class="form-laebl">Google Webmaster Tool</label>
+                    <input type="text" id="gg_wt" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.gg_wt:''%>" />
+                    <label for="" class="form-label">Image share</label>
+                    <div class="input-group">
+                        <button class="btn btn-outline-success cta-choose-img">Choose Image</button>
+                        <input
+                            type="text"
+                            name="og_share"
+                            class="form-control"
+                            placeholder="path value..."
+                            value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.og_share:''%>"
+                        />
+                    </div>
+                    <div class="preview-wrapper">
+                        <img src="<%=(pc&&pc.pageinfo)?pc.pageinfo?.og_share:'/imgs/default.png'%>" alt="" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -1525,7 +1544,10 @@
             ]
             },
             pageinfo: {
+                footer_title: document.querySelector('[name="footertitle"]').value,
+                og_share: document.querySelector('[name="og_share"]').value,
                 phone: document.querySelector('[name="pageinfo_phone"]').value,
+                zalo: document.querySelector('[name="pageinfo_zalo"]').value,
                 email: document.querySelector('[name="pageinfo_email"]').value,
                 address: document.querySelector('[name="pageinfo_address"]').value,
                 title: document.getElementById('webname').value,

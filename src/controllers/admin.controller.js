@@ -58,6 +58,9 @@ const dataTransfer = (data) => {
             percent: data.voucher.percent
         },
         pageinfo: {
+            footer_title: data.pageinfo.footer_title,
+            og_share: data.pageinfo.og_share,
+            zalo: data.pageinfo.zalo,
             phone: data.pageinfo.phone,
             email: data.pageinfo.email,
             address: data.pageinfo.address,
