@@ -7,7 +7,7 @@
         <!-- Cơ bản cho SEO -->
         <!-- <meta name="robots" content="index, follow"> -->
         <!-- <link rel="canonical" href="https://www.toppilife.vn/"> -->
-        <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
         <meta name="description" content="<%=(pc&&pc.pageinfo)?pc?.pageinfo?.desc:'ToppiLife mang đến giải pháp hỗ trợ sức khỏe toàn diện giúp giảm đau nhức, cải thiện giấc ngủ và nâng cao chất lượng cuộc sống cho người bận rộn và người lớn tuổi.'%>">
         <meta name="keywords" content="<%=(pc&&pc.pageinfo)?pc?.pageinfo?.keywords:'Toppi life'%>">
@@ -17,8 +17,8 @@
         <meta property="og:description" content="<%=(pc&&pc.pageinfo)?pc?.pageinfo?.desc:'ToppiLife mang đến giải pháp hỗ trợ sức khỏe toàn diện giúp giảm đau nhức, cải thiện giấc ngủ và nâng cao chất lượng cuộc sống cho người bận rộn và người lớn tuổi.'%>">
         <meta property="og:locale" content="vi_VN">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://toppilife.com.vn">
-        <meta property="og:image" content="https://toppilife.com.vn<%=(pc&&pc.pageinfo)?pc?.pageinfo?.og_share:'/seo/delegate.png'%>">
+        <meta property="og:url" content="<%=(pc&&pc.pageinfo)?pc?.pageinfo?.gg_a:''%>">
+        <meta property="og:image" content="<%=(pc&&pc.pageinfo)?pc?.pageinfo?.gg_a:''%><%=(pc&&pc.pageinfo)?pc?.pageinfo?.og_share:'/seo/delegate.png'%>">
 
         <!-- Zalo (dùng Open Graph) -->
         <!-- Zalo đọc og:title, og:description, og:image, og:url giống Facebook -->
@@ -26,6 +26,7 @@
         <link rel="stylesheet" href="css/style.css" />
         <!-- jquery -->
         <script src="libs/js/jquery-3.7.1.js"></script>
+        <script src="libs/js/formatPhone.js"></script>
         <!-- Font Awesome CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
         <!-- swiper -->

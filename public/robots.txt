@@ -23,7 +23,7 @@ Allow: /
 Allow: /public
 
 # Sitemap (giúp bot index nhanh và đầy đủ)
-# Sitemap: https://www.example.com/sitemap.xml
+Sitemap: https://dientruongvanphong.toppilife.vn/sitemap.xml
 
 # ===================================================================
 # Notes:
