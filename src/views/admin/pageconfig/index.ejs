@@ -988,81 +988,44 @@
             <span class="text-muted">▼</span>
         </div>
 
+        
+        <!--  -->
         <div id="s_commitment" class="collapse">
             <div class="card-body">
                 <label class="form-label" for="">title</label>
                 <input type="text" name="commit_title" value="<%=(pc&&pc.commitment)?pc.commitment?.title:''%>" class="form-control" placeholder="title...">
-                <div class="row">
-                    <div class="col-6">
-                        <label for="hero_img_primary" class="form-label">Icon 1</label>
-                        <input type="text" name="commit_desc1" class="form-control" placeholder="desc..." value="<%=(pc&&pc.commitment)?pc.commitment?.descs?.[0]:''%>">
-                        <div class="input-group">
-                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
-                            <input
-                                type="text"
-                                name="commit_icon1"
-                                class="form-control"
-                                placeholder="path value..."
-                                value="<%=(pc&&pc.commitment)?pc.commitment?.icons[0]:'/imgs/default.png'%>"
-                            />
-                        </div>
-                        <div class="preview-wrapper">
-                            <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[0]:'/imgs/default.png'%>" alt="" />
-                        </div>
-                        <!--  -->
-                        <label for="hero_img_primary" class="form-label">Icon 2</label>
-                        <input type="text" name="commit_desc2" class="form-control" placeholder="desc..." value="<%=(pc&&pc.commitment)?pc.commitment?.descs?.[1]:''%>">
-                        <div class="input-group">
-                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
-                            <input
-                                type="text"
-                                name="commit_icon2"
-                                class="form-control"
-                                placeholder="path value..."
-                                value="<%=(pc&&pc.commitment)?pc.commitment?.icons[1]:'/imgs/default.png'%>"
-                            />
-                        </div>
-                        <div class="preview-wrapper">
-                            <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[1]:'/imgs/default.png'%>" alt="" />
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <label for="hero_img_primary" class="form-label">Icon 3</label>
-                        <input type="text" name="commit_desc3" class="form-control" placeholder="desc..." value="<%=(pc&&pc.commitment)?pc.commitment?.descs?.[2]:''%>">
-                        <div class="input-group">
-                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
-                            <input
-                                type="text"
-                                name="commit_icon3"
-                                class="form-control"
-                                placeholder="path value..."
-                                value="<%=(pc&&pc.commitment)?pc.commitment?.icons[2]:'/imgs/default.png'%>"
-                            />
-                        </div>
-                        <div class="preview-wrapper">
-                            <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[2]:'/imgs/default.png'%>" alt="" />
-                        </div>
-                        <!-- icon 4 -->
-                        <label for="hero_img_primary" class="form-label">Primary image</label>
-                        <input type="text" name="commit_desc4" class="form-control" placeholder="desc..." value="<%=(pc&&pc.commitment)?pc.commitment?.descs?.[3]:''%>">
-                        <div class="input-group">
-                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
-                            <input
-                                type="text"
-                                name="commit_icon4"
-                                class="form-control"
-                                placeholder="path value..."
-                                value="<%=(pc&&pc.commitment)?pc.commitment?.icons[3]:'/imgs/default.png'%>"
-                            />
-                        </div>
-                        <div class="preview-wrapper">
-                            <img src="<%=(pc&&pc.commitment)?pc.commitment?.icons[3]:'/imgs/default.png'%>" alt="" />
-                        </div>
-                    </div>
+                <button id="cta_commitment_add" class="px-3 py-2 mt-3">Add</button>
+                <div class="" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;" id="s_commitment_body" >
+                    <%if(pc.commitment.cards && pc.commitment.cards.length>0){%>
+                        <%pc.commitment.cards.forEach((c, i)=>{%>
+                            <div class="item" style="padding-top: 10px">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <label for="hero_img_primary" class="form-label">Icon </label>
+                                        <button class="remove" style="border: 1px solid #ddd; padding: 12px 16px">X</button>
+                                    </div>
+                                <input type="text" name="commit_desc" class="form-control" placeholder="desc..." value="<%=c.title%>">
+                                <div class="input-group">
+                                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                                            <input
+                                                type="text"
+                                                name="commit_icon"
+                                                class="form-control"
+                                                placeholder="path value..."
+                                                value="<%=c.icon?c.icon:'/imgs/default.png'%>"
+                                            />
+                                        </div>
+                                        <div class="preview-wrapper">
+                                            <img src="<%=c.icon?c.icon:'/imgs/default.png'%>" alt="" />
+                                </div>
+                                    </div>
+                        <%})%>
+                    <%}%>
                 </div>
             </div>
         </div>
     </div>
+    <!--  -->
+        
 </section>
     <!-- voucher -->
      <section id="voucher">
@@ -1082,33 +1045,47 @@
                 <div class="row">
                     <div class="col-6">
                         <label for="" class="form-label">Image voucher</label>
-<div class="input-group">
-    <button class="btn btn-outline-success cta-choose-img">Choose image</button>
-    <input
-        type="text"
-        name="voucher_img"
-        class="form-control"
-        placeholder="path value..."
-        value="<%=(pc&&pc.voucher)?pc.voucher?.img:''%>"
-    />
-</div>
-<div class="preview-wrapper">
-    <img src="<%=(pc&&pc.voucher)?pc.voucher?.img:'/imgs/default.png'%>" alt="" />
-</div>
+                        <div class="input-group">
+                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                            <input
+                                type="text"
+                                name="voucher_img"
+                                class="form-control"
+                                placeholder="path value..."
+                                value="<%=(pc&&pc.voucher)?pc.voucher?.img:''%>"
+                            />
+                        </div>
+                        <div class="preview-wrapper">
+                            <img src="<%=(pc&&pc.voucher)?pc.voucher?.img:'/imgs/default.png'%>" alt="" />
+                        </div>
+                        <!-- icon -->
+                         <label for="" class="form-label">Icon voucher</label>
+                        <div class="input-group">
+                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                            <input
+                                type="text"
+                                name="voucher_icon"
+                                class="form-control"
+                                placeholder="path value..."
+                                value="<%=(pc&&pc.voucher)?pc.voucher?.icon:''%>"
+                            />
+                        </div>
+                        <div class="preview-wrapper">
+                            <img src="<%=(pc&&pc.voucher)?pc.voucher?.icon:'/imgs/default.png'%>" alt="" />
+                        </div>
                     </div>
                     <div class="col-6">
                         <label for="" class="form-label">Title</label>
-                        <input type="text" placeholder="Title..." value="<%=(pc&&pc.voucher)?pc.voucher.title:''%>" name="voucher_title" class="form-control">
-                        <div class="input-group">
-                            <div style="width: 70%;">
-                                <label for="" class="form-label">EndDate: </label>
+                        <input type="text" class="form-control" value="<%=(pc&&pc.voucher)?pc.voucher?.title: '' %>" name="voucher_title"> <br>
+                        <label for=""  class="form-lable">Line 1</label>
+                        <input type="text" name="voucher_line1" value="<%=(pc&&pc.voucher)?pc.voucher?.lines[0]:''%>" class="form-control">
+                        <label for="" class="form-lable">Line 2</label>
+                        <input type="text" name="voucher_line2" value="<%=(pc&&pc.voucher)?pc.voucher?.lines[1]:''%>" class="form-control">
+                        <label for="" class="form-lable">Line 3</label>
+                        <input type="text" name="voucher_line3" value="<%=(pc&&pc.voucher)?pc.voucher?.lines[2]:''%>" class="form-control">
+                        <label for="" class="form-lable">VoucherEnd</label>
                         <input type="datetime-local" name="voucher_enddate" value="<%=(pc&&pc.voucher)?pc.voucher.end_date:''%>" id="" class="form-control">
-                            </div>
-                            <div style="width: 30%;">
-                                <label for="" class="form-label">Voucher percent <small style="color: red">(%)</small></label>
-                        <input type="number" name="voucher_percent" min="1" max="100" value="<%=(pc&&pc.voucher)?pc.voucher.percent:''%>" class="form-control" placeholder="vd: 10%">
-                            </div>
-                        </div>
+                        
                         
                         
                     </div>
@@ -1321,23 +1298,52 @@
             });
         });
     // 
-    // get data
-    // const btnGetData = document.getElementById('btnGetData');
-    // btnGetData.addEventListener('click', () => {
-    //     const cards = document.querySelectorAll('.customer-card');
-    //     const data = [];
-    //         cards.forEach((card) => {
-    //             const img = card.querySelector(".form-control[name='sol_card1_img']")?.value || '';
-    //             const name = card.querySelector('.name')?.value.trim() || '';
-    //             const job = card.querySelector('.job')?.value.trim() || '';
-    //             const quote = card.querySelector('.quote')?.value.trim() || '';
+            const commitmentRoot = document.querySelector('#s_commitment #s_commitment_body');
 
-    //             data.push({ img, name, job, quote });
-    //         });
-    //         // temp
-    //         fb_customer = data;
-    //         console.log(data); // ✅ In ra mảng dữ liệu khách hàng
-    //     });
+            document.querySelector('#cta_commitment_add').addEventListener('click', function(ev){
+
+                const htmlLayout = `
+                <div class="item" style="padding-top: 10px">
+                    <div style="display: flex; justify-content: space-between;">
+                        <label for="hero_img_primary" class="form-label">Icon </label>
+                        <button class="remove" style="border: 1px solid #ddd; padding: 12px 16px">X</button>
+                    </div>
+                <input type="text" name="commit_desc" class="form-control" placeholder="desc...">
+                <div class="input-group">
+                            <button class="btn btn-outline-success cta-choose-img">Choose image</button>
+                            <input
+                                type="text"
+                                name="commit_icon"
+                                class="form-control"
+                                placeholder="path value..."
+                                value="<%='/imgs/default.png'%>"
+                            />
+                        </div>
+                        <div class="preview-wrapper">
+                            <img src="<%='/imgs/default.png'%>" alt="" />
+                </div>
+                    </div>
+                `;
+                commitmentRoot.insertAdjacentHTML('beforeend', htmlLayout);
+                // dataCardCommitment();
+            });
+            commitmentRoot.addEventListener('click', (ev)=>{
+                if(ev.target.classList.contains('remove')){
+                    const item = ev.target.closest('.item');
+                    item.remove();
+                }
+            })
+            //
+            // 🟢 Thêm đoạn này để gắn lại sự kiện cho các nút mới
+            commitmentRoot.addEventListener('click', function(ev){
+                const btn = ev.target.closest('.cta-choose-img');
+                if (!btn) return;
+
+                ev.preventDefault();
+
+                openModal();
+                groupTarget = btn; // lưu đúng button vừa click
+            })
     //fx get card data
     function dataCardFeedback(){
         const cards = document.querySelectorAll('.customer-card');
@@ -1352,8 +1358,20 @@
             });
             // temp
             fb_customer = data;
-            console.log(data); // ✅ In ra mảng dữ liệu khách hàng
+            //console.log(data); // ✅ In ra mảng dữ liệu khách hàng
     } 
+    // fx data card commitment
+    function dataCardCommitment(){
+        const data =[];
+        document.querySelectorAll('#s_commitment #s_commitment_body .item').forEach(item=>{
+            const title = item.querySelector('[name="commit_desc"]').value.trim();
+            const icon = item.querySelector('[name="commit_icon"]').value.trim();
+            data.push({title, icon})
+        })
+        console.log('data commitment', data);
+        return data; 
+    }
+
     // 
     document.querySelectorAll('#chooseVideoModal .video-list .cta-choose-card-video').forEach((thumb, i) => {
         thumb.addEventListener('click', function (ev) {
@@ -1389,6 +1407,7 @@
     });
     document.getElementById('cta-saveConfig').addEventListener('click', function () {
         dataCardFeedback();
+        const commitmentData = dataCardCommitment();
         const data = {
             hero: {
                 title_line1: document.querySelector('[name="hero_title_line1"]').value,
@@ -1532,24 +1551,18 @@
             voucher: {
                 title: document.querySelector('[name="voucher_title"]').value,
                 img: document.querySelector('[name="voucher_img"]').value,
-                end_date: document.querySelector('[name="voucher_enddate"]').value,
-                percent: document.querySelector('[name="voucher_percent"]').value
+                icon: document.querySelector('[name="voucher_icon"]').value.trim(),
+                lines: [
+                    document.querySelector('[name="voucher_line1"]').value.trim(),
+                    document.querySelector('[name="voucher_line2"]').value.trim(),
+                    document.querySelector('[name="voucher_line3"]').value.trim()
+                ],
+                end_date: document.querySelector('[name="voucher_enddate"]').value
+                // percent: document.querySelector('[name="voucher_percent"]').value
             },
             commitment: {
                 title: document.querySelector('[name="commit_title"]').value,
-                icons: [
-                    icon1= document.querySelector('[name="commit_icon1"]').value,
-                    icon2= document.querySelector('[name="commit_icon2"]').value,
-                    icon3= document.querySelector('[name="commit_icon3"]').value,
-                    icon4= document.querySelector('[name="commit_icon4"]').value,
-                ],
-                descs: [
-                    desc1= document.querySelector('[name="commit_desc1"]').value,
-                    desc2= document.querySelector('[name="commit_desc2"]').value,
-                    desc3= document.querySelector('[name="commit_desc3"]').value,
-                    desc4= document.querySelector('[name="commit_desc4"]').value,
-
-            ]
+                cards: commitmentData, 
             },
             pageinfo: {
                 footer_title: document.querySelector('[name="footertitle"]').value,
@@ -1587,9 +1600,4 @@
             },
         });
     });
-    // function saveSetting() {
-    //     const title = document.getElementById('titleInput').value;
-    //     const desc = document.getElementById('descInput').value;
-    //     alert(`Đã lưu:\nTiêu đề: ${title}\nMô tả: ${desc}`);
-    // }
 </script>

@@ -63,17 +63,16 @@ const PageConfigSchema = new mongoose.Schema({
     },
     commitment:{
         title: String,
-        icons:[
-            String
-        ],
-        descs: [String]
+        cards: [],
     }
     ,
     voucher:{
         title: String,
         img: String,
+        icon: String,
+        lines: [],
         end_date: String,
-        percent: Number
+        // percent: Number
     },
     pageinfo:{
         footer_title: String,

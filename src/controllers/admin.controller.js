@@ -48,14 +48,15 @@ const dataTransfer = (data) => {
         },
         commitment: {
             title: data.commitment.title,
-            icons: data.commitment.icons,
-            descs: data.commitment.descs,
+            cards: data.commitment.cards
         },
         voucher: {
             title: data.voucher.title,
             img: data.voucher.img,
+            icon: data.voucher.icon,
+            lines: data.voucher.lines,
             end_date: data.voucher.end_date,
-            percent: data.voucher.percent
+            // percent: data.voucher.percent
         },
         pageinfo: {
             footer_title: data.pageinfo.footer_title,
