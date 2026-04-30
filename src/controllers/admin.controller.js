@@ -69,7 +69,8 @@ const dataTransfer = (data) => {
             desc: data.pageinfo.desc,
             keywords: data.pageinfo.keywords,
             gg_a: data.pageinfo.gg_a,
-            gg_wt: data.pageinfo.gg_wt
+            gtm_id: data.pageinfo.gtm_id,
+            meta_pixel_id: data.pageinfo.meta_pixel_id,
         }
     };
     return dataTransfer;

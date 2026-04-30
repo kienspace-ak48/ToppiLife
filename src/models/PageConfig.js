@@ -85,7 +85,8 @@ const PageConfigSchema = new mongoose.Schema({
         desc: String,
         keywords: String,
         gg_a: String,
-        gg_wt: String,
+        gtm_id: String,
+        meta_pixel_id: String,
     }
 });
 

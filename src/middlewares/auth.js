@@ -5,7 +5,13 @@ const SECRET = process.env.SECRET_JWT;
 
 
 function isAuthenticated(req, res, next){
+  // test
+  // req.user = {
+  //   username: 'admin_test',
+  //   role: 'master',
+  // }
   // return next();
+  // end test
   const token = req.cookies.token ||(req.headers.authorization && req.headers.authorization.split(' ')[1]);
   if(!token){
     // return res.status(401).json({success: false, mess: 'Khong co token, vui long dang nhap'});

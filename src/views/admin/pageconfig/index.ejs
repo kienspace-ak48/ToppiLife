@@ -1130,8 +1130,10 @@
                     <input type="text" id="keywords" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.keywords:''%>" />
                     <label for="" class="form-label">Canonical <small style="color: red">(bỏ /)</small></label>
                     <input type="text" id="gg_a" class="form-control" placeholder="Ex:https://toppilife.vn/" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.gg_a:''%>" />
-                    <label for="" class="form-label">Google Webmaster Tool</label>
-                    <input type="text" id="gg_wt" class="form-control" placeholder="Ex:19001900" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.gg_wt:''%>" />
+                    <label for="" class="form-label">Google Tag Manager ID</label>
+                    <input type="text" id="gtm_id" class="form-control" placeholder="GTM-W524G2XR" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.gtm_id:''%>" />
+                    <label for="" class="form-label">Meta (Facebook) Pixel ID</label>
+                    <input type="text" id="meta_pixel_id" class="form-control" placeholder="1291350602880286" value="<%=(pc&&pc.pageinfo)?pc.pageinfo?.meta_pixel_id:''%>" />
                     <label for="" class="form-label">Image share</label>
                     <div class="input-group">
                         <button class="btn btn-outline-success cta-choose-img">Choose Image</button>
@@ -1575,8 +1577,8 @@
                 desc: document.getElementById('desc').value,
                 keywords: document.getElementById('keywords').value,
                 gg_a: document.getElementById('gg_a').value,
-                gg_wt: document.getElementById('gg_wt').value,
-
+                gtm_id: document.getElementById('gtm_id').value.trim(),
+                meta_pixel_id: document.getElementById('meta_pixel_id').value.trim(),
 
                 
             }
