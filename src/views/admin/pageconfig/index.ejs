@@ -207,12 +207,12 @@
                                         id="hero_img_primary"
                                         class="form-control"
                                         placeholder="path value..."
-                                        value="<%=(pc&&pc.hero)?pc.hero?.images[0]?.primary:''%>"
+                                        value="<%=(pc&&pc.hero)?pc.hero?.images?.[0]?.primary:''%>"
                                     />
                                 </div>
                                 <div class="preview-wrapper">
                                     <img
-                                        src="<%=(pc &&pc.hero)?pc.hero.images[0].primary:'/imgs/default.png'%>"
+                                        src="<%=(pc &&pc.hero)?pc.hero?.images?.[0]?.primary:'/imgs/default.png'%>"
                                         alt=""
                                     />
                                 </div>
@@ -226,13 +226,13 @@
                                         id="hero_img_secondary"
                                         ype="text"
                                         class="form-control"
-                                        value="<%=(pc&&pc.hero)?pc.hero?.images[0]?.secondary:''%>"
+                                        value="<%=(pc&&pc.hero)?pc.hero?.images?.[0]?.secondary:''%>"
                                         placeholder="path value..."
                                     />
                                 </div>
                                 <div class="preview-wrapper">
                                     <img
-                                        src="<%=(pc &&pc.hero)?pc.hero.images[0].secondary:'/imgs/default.png'%>"
+                                        src="<%=(pc &&pc.hero)?pc.hero?.images?.[0]?.secondary:'/imgs/default.png'%>"
                                         alt=""
                                     />
                                 </div>
@@ -250,7 +250,7 @@
                                 id="hero_issue_title_1"
                                 name="hero_issue_title_1"
                                 placeholder="Title..."
-                                value="<%=(pc&&pc.hero)?pc.hero?.issues[0].title:''%>"
+                                value="<%=(pc&&pc.hero)?pc.hero?.issues?.[0]?.title:''%>"
                             />
                             <textarea
                                 name="hero_issue_desc_1"
@@ -258,7 +258,7 @@
                                 class="form-control"
                                 placeholder="Enter..."
                             >
-<%=(pc&&pc.hero)?pc.hero?.issues[0]?.desc:''%></textarea
+<%=(pc&&pc.hero)?pc.hero?.issues?.[0]?.desc:''%></textarea
                             >
 
                             <label for="hero_issue_title_2" class="form-label">Issue-title-2</label>
@@ -268,7 +268,7 @@
                                 id="hero_issue_title_2"
                                 name="hero_issue_title_2"
                                 placeholder="Title..."
-                                value="<%=(pc&&pc.hero)?pc.hero?.issues[1].title:''%>"
+                                value="<%=(pc&&pc.hero)?pc.hero?.issues?.[1]?.title:''%>"
                             />
                             <textarea
                                 name="hero_issue_desc_2"
@@ -276,7 +276,7 @@
                                 class="form-control"
                                 placeholder="Enter..."
                             >
-<%=(pc&&pc.hero)?pc.hero?.issues[1]?.desc:''%></textarea
+<%=(pc&&pc.hero)?pc.hero?.issues?.[1]?.desc:''%></textarea
                             >
 
                             <label for="hero_issue_title_3" class="form-label">Issue-title-3</label>
@@ -286,7 +286,7 @@
                                 id="hero_issue_title_3"
                                 name="hero_issue_title_3"
                                 placeholder="Title..."
-                                value="<%=(pc&&pc.hero)?pc.hero?.issues[2].title:''%>"
+                                value="<%=(pc&&pc.hero)?pc.hero?.issues?.[2]?.title:''%>"
                             />
                             <textarea
                                 name="hero_issue_desc_3"
@@ -294,7 +294,7 @@
                                 class="form-control"
                                 placeholder="Enter..."
                             >
-<%=(pc&&pc.hero)?pc.hero?.issues[2]?.desc:''%></textarea
+<%=(pc&&pc.hero)?pc.hero?.issues?.[2]?.desc:''%></textarea
                             >
                         </div>
 
@@ -315,13 +315,13 @@
                                 <input
                                     id="hero_issue_img_summary"
                                     type="text"
-                                    value="<%=(pc&&pc.hero)?pc.hero?.images[0]?.summary:''%>"
+                                    value="<%=(pc&&pc.hero)?pc.hero?.images?.[0]?.summary:''%>"
                                     class="form-control"
                                     placeholder="path value..."
                                 />
                             </div>
                             <div class="preview-wrapper">
-                                <img src="<%=(pc &&pc.hero)?pc.hero.images[0].summary:'/imgs/default.png'%>" alt="" />
+                                <img src="<%=(pc &&pc.hero)?pc.hero?.images?.[0]?.summary:'/imgs/default.png'%>" alt="" />
                             </div>
                         </div>
                     </div>
@@ -398,12 +398,12 @@
                                         name="sol_card1_img"
                                         class="form-control"
                                         placeholder="path value..."
-                                        value="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:''%>"
+                                        value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.img:''%>"
                                     />
                                 </div>
                                 <div class="preview-wrapper">
                                     <img
-                                        src="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:'/imgs/default.png'%>"
+                                        src="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.img:'/imgs/default.png'%>"
                                         alt=""
                                     />
                                 </div>
@@ -413,7 +413,7 @@
                                     type="text"
                                     class="form-control"
                                     name="sol_card1_title"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0].title:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.title:''%>"
                                     placeholder="title..."
                                 />
                                 <!-- co che hoat dong -->
@@ -422,21 +422,21 @@
                                     type="text"
                                     class="form-control"
                                     name="sol_card1_moo1"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.mechanismofoperation[0]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.mechanismofoperation?.[0]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card1_moo2"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.mechanismofoperation[1]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.mechanismofoperation?.[1]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card1_moo3"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.mechanismofoperation[2]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.mechanismofoperation?.[2]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <!-- cong dung -->
@@ -445,21 +445,21 @@
                                     type="text"
                                     class="form-control"
                                     name="sol_card1_p1"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.purpose[0]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.purpose?.[0]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card1_p2"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.purpose[1]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.purpose?.[1]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card1_p3"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0]?.purpose[2]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.purpose?.[2]?.desc:''%>"
                                     placeholder="text..."
                                 />
                             </div>
@@ -483,12 +483,12 @@
                                         name="sol_card2_img"
                                         class="form-control"
                                         placeholder="path value..."
-                                        value="<%=(pc&&pc.solution)?pc.solution?.cards[1].img:''%>"
+                                        value="<%=(pc&&pc.solution)?pc.solution?.cards?.[1]?.img:''%>"
                                     />
                                 </div>
                                 <div class="preview-wrapper">
                                     <img
-                                        src="<%=(pc&&pc.solution)?pc.solution?.cards[1].img:'/imgs/default.png'%>"
+                                        src="<%=(pc&&pc.solution)?pc.solution?.cards?.[1]?.img:'/imgs/default.png'%>"
                                         alt=""
                                     />
                                 </div>
@@ -498,7 +498,7 @@
                                     type="text"
                                     class="form-control"
                                     name="sol_card2_title"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1].title:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[1]?.title:''%>"
                                     placeholder="title..."
                                 />
                                 <!-- co che hoat dong -->
@@ -507,21 +507,21 @@
                                     type="text"
                                     class="form-control"
                                     name="sol_card2_moo1"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.mechanismofoperation[0]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[1]?.mechanismofoperation?.[0]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card2_moo2"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.mechanismofoperation[1]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[1]?.mechanismofoperation?.[1]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card2_moo3"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.mechanismofoperation[2]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[1]?.mechanismofoperation?.[2]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <!-- cong dung -->
@@ -530,21 +530,21 @@
                                     type="text"
                                     class="form-control"
                                     name="sol_card2_p1"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.purpose[0]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[1]?.purpose?.[0]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card2_p2"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.purpose[1]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[1]?.purpose?.[1]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card2_p3"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[1]?.purpose[2]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[1]?.purpose?.[2]?.desc:''%>"
                                     placeholder="text..."
                                 />
                             </div>
@@ -568,12 +568,12 @@
                                         name="sol_card3_img"
                                         class="form-control"
                                         placeholder="path value..."
-                                        value="<%=(pc&&pc.solution)?pc.solution?.cards[2].img:''%>"
+                                        value="<%=(pc&&pc.solution)?pc.solution?.cards?.[2]?.img:''%>"
                                     />
                                 </div>
                                 <div class="preview-wrapper">
                                     <img
-                                        src="<%=(pc&&pc.solution)?pc.solution?.cards[2].img:'/imgs/default.png'%>"
+                                        src="<%=(pc&&pc.solution)?pc.solution?.cards?.[2]?.img:'/imgs/default.png'%>"
                                         alt=""
                                     />
                                 </div>
@@ -583,7 +583,7 @@
                                     type="text"
                                     class="form-control"
                                     name="sol_card3_title"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[0].title:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.title:''%>"
                                     placeholder="title..."
                                 />
                                 <!-- co che hoat dong -->
@@ -592,21 +592,21 @@
                                     type="text"
                                     class="form-control"
                                     name="sol_card3_moo1"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.mechanismofoperation[0]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[2]?.mechanismofoperation?.[0]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card3_moo2"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.mechanismofoperation[1]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[2]?.mechanismofoperation?.[1]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card3_moo3"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.mechanismofoperation[2]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[2]?.mechanismofoperation?.[2]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <!-- cong dung -->
@@ -615,21 +615,21 @@
                                     type="text"
                                     class="form-control"
                                     name="sol_card3_p1"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.purpose[0]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[2]?.purpose?.[0]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card3_p2"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.purpose[1]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[2]?.purpose?.[1]?.desc:''%>"
                                     placeholder="text..."
                                 />
                                 <input
                                     type="text"
                                     class="form-control"
                                     name="sol_card3_p3"
-                                    value="<%=(pc&&pc.solution)?pc.solution?.cards[2]?.purpose[2]?.desc:''%>"
+                                    value="<%=(pc&&pc.solution)?pc.solution?.cards?.[2]?.purpose?.[2]?.desc:''%>"
                                     placeholder="text..."
                                 />
                             </div>
@@ -720,22 +720,22 @@
                                     name="ben_card1_img"
                                     class="form-control"
                                     placeholder="path value..."
-                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[0].img:''%>"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[0]?.img:''%>"
                                 />
                             </div>
                             <div class="preview-wrapper">
-                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards[0].img:'/imgs/default.png'%>" alt="" />
+                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[0]?.img:'/imgs/default.png'%>" alt="" />
                             </div>
                             <div class="mb-3">
                                 <input
                                     type="text"
                                     class="form-control"
-                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[0].title:''%>"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[0]?.title:''%>"
                                     name="ben_card1_title"
                                     placeholder="Tiêu đề..."
                                 />
                                 <textarea class="form-control" rows="3" name="ben_card1_desc" placeholder="Nội dung...">
-<%=(pc&&pc.benefit)?pc.benefit?.cards[0].desc:''%></textarea
+<%=(pc&&pc.benefit)?pc.benefit?.cards?.[0]?.desc:''%></textarea
                                 >
                             </div>
                             <!-- item 2 -->
@@ -747,22 +747,22 @@
                                     name="ben_card2_img"
                                     class="form-control"
                                     placeholder="path value..."
-                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[1].img:''%>"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[1]?.img:''%>"
                                 />
                             </div>
                             <div class="preview-wrapper">
-                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards[1].img:'/imgs/default.png'%>" alt="" />
+                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[1]?.img:'/imgs/default.png'%>" alt="" />
                             </div>
                             <div class="mb-3">
                                 <input
                                     type="text"
                                     class="form-control"
-                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[1].title:''%>"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[1]?.title:''%>"
                                     name="ben_card2_title"
                                     placeholder="Tiêu đề..."
                                 />
                                 <textarea class="form-control" rows="3" name="ben_card2_desc" placeholder="Nội dung...">
-<%=(pc&&pc.benefit)?pc.benefit?.cards[1].desc:''%></textarea
+<%=(pc&&pc.benefit)?pc.benefit?.cards?.[1]?.desc:''%></textarea
                                 >
                             </div>
                         </div>
@@ -776,22 +776,22 @@
                                     name="ben_card3_img"
                                     class="form-control"
                                     placeholder="path value..."
-                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[2].img:''%>"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[2]?.img:''%>"
                                 />
                             </div>
                             <div class="preview-wrapper">
-                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards[2].img:'/imgs/default.png'%>" alt="" />
+                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[2]?.img:'/imgs/default.png'%>" alt="" />
                             </div>
                             <div class="mb-3">
                                 <input
                                     type="text"
                                     class="form-control"
-                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[2].title:''%>"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[2]?.title:''%>"
                                     name="ben_card3_title"
                                     placeholder="Tiêu đề..."
                                 />
                                 <textarea class="form-control" rows="3" name="ben_card3_desc" placeholder="Nội dung...">
-<%=(pc&&pc.benefit)?pc.benefit?.cards[2].desc:''%></textarea
+<%=(pc&&pc.benefit)?pc.benefit?.cards?.[2]?.desc:''%></textarea
                                 >
                             </div>
                             <!-- item 4 -->
@@ -803,22 +803,22 @@
                                     name="ben_card4_img"
                                     class="form-control"
                                     placeholder="path value..."
-                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[3].img:''%>"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[3]?.img:''%>"
                                 />
                             </div>
                             <div class="preview-wrapper">
-                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards[3].img:'/imgs/default.png'%>" alt="" />
+                                <img src="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[3]?.img:'/imgs/default.png'%>" alt="" />
                             </div>
                             <div class="mb-3">
                                 <input
                                     type="text"
                                     class="form-control"
-                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards[3].title:''%>"
+                                    value="<%=(pc&&pc.benefit)?pc.benefit?.cards?.[3]?.title:''%>"
                                     name="ben_card4_title"
                                     placeholder="Tiêu đề..."
                                 />
                                 <textarea class="form-control" rows="3" name="ben_card4_desc" placeholder="Nội dung...">
-<%=(pc&&pc.benefit)?pc.benefit?.cards[3].desc:''%></textarea
+<%=(pc&&pc.benefit)?pc.benefit?.cards?.[3]?.desc:''%></textarea
                                 >
                             </div>
                         </div>
@@ -860,14 +860,14 @@
                     
                     <div class="col-6">
                 <label for="" class="form-label">Card 1</label>
-                <input type="text" class="form-control" name="wcs_card1_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[0]?.title:''%>">
-                <input type="text" name="wcs_card1_sub-title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[0]?.subtitle:''%>" >
+                <input type="text" class="form-control" name="wcs_card1_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards?.[0]?.title:''%>">
+                <input type="text" name="wcs_card1_sub-title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards?.[0]?.subtitle:''%>" >
                 <label for="" class="form-label">Card 2</label>
-                <input type="text" class="form-control" name="wcs_card2_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[1]?.title:''%>">
-                <input type="text" name="wcs_card2_sub-title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[1]?.subtitle:''%>">
+                <input type="text" class="form-control" name="wcs_card2_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards?.[1]?.title:''%>">
+                <input type="text" name="wcs_card2_sub-title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards?.[1]?.subtitle:''%>">
                 <label for="" class="form-label">Card 3</label>
-                <input type="text" class="form-control" name="wcs_card3_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[2]?.title:''%>">
-                <input type="text" name="wcs_card3_sub-title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards[2]?.subtitle:''%>" >
+                <input type="text" class="form-control" name="wcs_card3_title" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards?.[2]?.title:''%>">
+                <input type="text" name="wcs_card3_sub-title"  class="form-control" value="<%=(pc && pc.whychooseus)?pc.whychooseus?.cards?.[2]?.subtitle:''%>" >
                     </div>
                     <div class="col-6">
                         
@@ -888,11 +888,11 @@
         name="wcu_img"
         class="form-control"
         placeholder="path value..."
-        value="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:''%>"
+        value="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.img:''%>"
     />
 </div>
 <div class="preview-wrapper">
-    <img src="<%=(pc&&pc.solution)?pc.solution?.cards[0].img:'/imgs/default.png'%>" alt="" />
+    <img src="<%=(pc&&pc.solution)?pc.solution?.cards?.[0]?.img:'/imgs/default.png'%>" alt="" />
 </div>
                     </div>
                 </div>
@@ -928,8 +928,8 @@
 
                         <div class="customers-container">
                             <!-- new -->
-                             <% if(pc&&pc.feedback.cards){ %>
-                                <% pc.feedback.cards.forEach((f,i)=>{ %>
+                             <% if (pc?.feedback?.cards) { %>
+                                <%(pc.feedback.cards || []).forEach((f,i)=>{ %>
                                     <div class="customers-container">
                             <!-- new -->
                              
@@ -996,8 +996,8 @@
                 <input type="text" name="commit_title" value="<%=(pc&&pc.commitment)?pc.commitment?.title:''%>" class="form-control" placeholder="title...">
                 <button id="cta_commitment_add" class="px-3 py-2 mt-3">Add</button>
                 <div class="" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;" id="s_commitment_body" >
-                    <%if(pc.commitment.cards && pc.commitment.cards.length>0){%>
-                        <%pc.commitment.cards.forEach((c, i)=>{%>
+                    <%if(pc?.commitment?.cards?.length > 0){%>
+                        <%(pc.commitment.cards || []).forEach((c, i)=>{%>
                             <div class="item" style="padding-top: 10px">
                                     <div style="display: flex; justify-content: space-between;">
                                         <label for="hero_img_primary" class="form-label">Icon </label>
@@ -1078,11 +1078,11 @@
                         <label for="" class="form-label">Title</label>
                         <input type="text" class="form-control" value="<%=(pc&&pc.voucher)?pc.voucher?.title: '' %>" name="voucher_title"> <br>
                         <label for=""  class="form-lable">Line 1</label>
-                        <input type="text" name="voucher_line1" value="<%=(pc&&pc.voucher)?pc.voucher?.lines[0]:''%>" class="form-control">
+                        <input type="text" name="voucher_line1" value="<%=(pc&&pc.voucher)?pc.voucher?.lines?.[0]:''%>" class="form-control">
                         <label for="" class="form-lable">Line 2</label>
-                        <input type="text" name="voucher_line2" value="<%=(pc&&pc.voucher)?pc.voucher?.lines[1]:''%>" class="form-control">
+                        <input type="text" name="voucher_line2" value="<%=(pc&&pc.voucher)?pc.voucher?.lines?.[1]:''%>" class="form-control">
                         <label for="" class="form-lable">Line 3</label>
-                        <input type="text" name="voucher_line3" value="<%=(pc&&pc.voucher)?pc.voucher?.lines[2]:''%>" class="form-control">
+                        <input type="text" name="voucher_line3" value="<%=(pc&&pc.voucher)?pc.voucher?.lines?.[2]:''%>" class="form-control">
                         <label for="" class="form-lable">VoucherEnd</label>
                         <input type="datetime-local" name="voucher_enddate" value="<%=(pc&&pc.voucher)?pc.voucher.end_date:''%>" id="" class="form-control">
                         
